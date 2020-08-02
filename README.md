@@ -300,9 +300,9 @@ At some point I picked up a book about XSLT at a Goodwill and held onto it becau
 
 ![Peter Grace's Tape Buying History](buyinghistory-scrshot-1.png)
 
-Because XML is so verbose the upkeep of entering new sales became tiresome, so I wrote a bash script to update my XML file--bh.xml, I called it. My pride and joy.  
-Unfortunately, I don't have those scripts anymore.  
-My goal was to put it online and have a webpage to add sales. Here is the page.  
+I still had to update my XML manually, and because XML is so verbose the upkeep of entering new sales became tiresome, so I wrote a bash script to update my XML file, or bh.xml as I called it. My pride and joy. Unfortunately, I don't have those scripts anymore.  
+My goal the whole time was to put it online and have a webpage to add sales. 
 ![Add Sale to Buying History](buyinghistory-addsale.png)
+I tried to use Javascript, but my knowledge of Javascript was limited to an Introduction to Computer Science class I took in 2005. I wasn't even aware of jQuery at the time. This was 2013. For years I kept buying tapes and updating bh.xml manually (utilizing my bash script, of course), until July of 2020 when I was given the opportunity to create a console application in C# using Entity Framework Code First. My first thought was to bring my years-long goal to fruition.  
 
 
