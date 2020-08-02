@@ -1,13 +1,15 @@
 # buying-history  
-I started buying cassette tapes on eBay and Amazon in 2006. I kept track of my purchases in a text file with a format of my own making.
+As a teenager I had a meager collection of Heavy Metal cassette tapes, but I sold them when I was 19; I guess I felt I had outgrown them. Then in 2006 when I discovered eBay and Amazon at 30, I started collecting them again. I guess I felt nostalgic. And because I'm fastidious, I kept track of my purchases in a text file with a format of my own making.
+## Stage One
 ```
 #SELLER:BAND{"ALBUM"[:PRICE][,"ALBUM"[:PRICE]]}[,BAND{"ALBUM"[:PRICE][,"ALBUM"[:PRICE]]}]:[SUBTOTAL]:TOTAL:DATE
 _gnasher670:Testament{"Practice What You Preach","The New Order"}:2.37:7.27:1/3/07
 tragedian1:Slayer{"Reign In Blood":7.50},Trouble{"The Skull":2.99},Xentrix{"Shattered Existence":7.16}::21.65:1/19/07
 thepollies:Exciter{"Heavy Metal Maniac","Long Live the Loud","Exciter"},Mercyful Fate{"In the Shadows":1.99}::9.73:1/9/07
+...
 ```
 Not exactly reader-friendly.  
-In 2008 while I was going to PCC for Computer Science I decided to convert my precious gobbledygook into XML. I did it in Java because I was taking a Java course at the time (unfortunately I don't have the source code anymore). I even wrote it out in pseudocode first in proper academic fashion. It worked beautifully. 
+In 2008 while I was going to PCC for Computer Science I decided to convert my precious gobbledygook into XML. I did it in Java because I was taking a Java course at the time. I even wrote it out in pseudocode first in proper academic fashion. (Unfortunately I have neither the Java nor the pseudo code anymore) It worked beautifully. 
 ```xml
 <buyinghistory>
   <sale seller="_gnasher670" subtotal="2.37" total="7.27" date="2007-01-03">
@@ -66,8 +68,10 @@ In 2008 while I was going to PCC for Computer Science I decided to convert my pr
       </album>
     </item>
   </sale>
+  ...
+</buyinghistory>
 ```
-But apparently I wasn't satisfied with that, so I made a couple sed scripts to do the same thing.  
+But apparently I wasn't satisfied with that, so as a programming exercise I wrote a couple sed scripts to do the same thing.  
 This one.
 ```sed
 # convertbh.sed1 
