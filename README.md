@@ -1,17 +1,14 @@
-# buying-history
-I used to have a meager collection of cassette tapes when I was a teenager, but I sold most of them during a turning point in my life. 
+# buying-history  
 I started buying cassette tapes on eBay and Amazon in 2006. I kept track of my purchases in a text file with a format of my own making.
 ```
+#SELLER:BAND{"ALBUM"[:PRICE][,"ALBUM"[:PRICE]]}[,BAND{"ALBUM"[:PRICE][,"ALBUM"[:PRICE]]}]:[SUBTOTAL]:TOTAL:DATE
 _gnasher670:Testament{"Practice What You Preach","The New Order"}:2.37:7.27:1/3/07
-millimidian:King Diamond{"Them"}:3.50:6.45:1/16/07
 tragedian1:Slayer{"Reign In Blood":7.50},Trouble{"The Skull":2.99},
 Xentrix{"Shattered Existence":7.16}::21.65:1/19/07
-mmusic:Oingo Boingo{"Best Of Boingo":4.99,"Boingo Alive":5.99},
-Sacrilege{"Within The Prophecy":5.99},Holy Moses{"Queen Of Siam":5.99},
-Nevermore{"Nevermore":4.99}::33.45:4/24/08
+thepollies:Exciter{"Heavy Metal Maniac","Long Live the Loud","Exciter"},Mercyful Fate{"In the Shadows":1.99}::9.73:1/9/07
 ```
 Not exactly reader-friendly.  
-In 2008 while I was going to PCC I decided to convert my precious gobbledygook into XML. My first idea was to make a sed script to convert it, but then I realized it would take several passes. I happened to be taking a course in Java at the time so I decided to use Java to do it (unfortunately I don't have the source code anymore). I wrote out the program in pseudocode first before I wrote the code. It worked beautifully. 
+In 2008 while I was going to PCC for Computer Science I decided to convert my precious gobbledygook into XML. I did it in Java because I was taking a Java course at the time (unfortunately I don't have the source code anymore). I even wrote it out in pseudocode first in proper academic fashion. It worked beautifully. 
 ```xml
 <buyinghistory>
   <sale seller="_gnasher670" subtotal="2.37" total="7.27" date="2007-01-03">
@@ -22,12 +19,6 @@ In 2008 while I was going to PCC I decided to convert my precious gobbledygook i
     <album>
       <band>Testament</band>
       <title>The New Order</title>
-    </album>
-  </sale>
-  <sale seller="millimidian" subtotal="3.50" total="6.45" date="2007-01-16">
-    <album>
-      <band>King Diamond</band>
-      <title>Them</title>
     </album>
   </sale>
   <sale seller="tragedian1" subtotal="" total="21.65" date="2007-01-19">
@@ -44,29 +35,38 @@ In 2008 while I was going to PCC I decided to convert my precious gobbledygook i
       <title>Shattered Existence</title>
     </album>
   </sale>
-  <sale seller="mmusic" subtotal="" total="33.45" date="2008-04-24">
-    <album price="4.99">
-      <band>Oingo Boingo</band>
-      <title>Best Of Boingo</title>
-    </album>
-    <album price="5.99">
-      <band>Oingo Boingo</band>
-      <title>Boingo Alive</title>
-    </album>
-    <album price="5.99">
-      <band>Sacrilege</band>
-      <title>Within The Prophecy</title>
-    </album>
-    <album price="5.99">
-      <band>Holy Moses</band>
-      <title>Queen Of Siam</title>
-    </album>
-    <album price="4.99">
-      <band>Nevermore</band>
-      <title>Nevermore</title>
-    </album>
+  <sale>
+    <store>eBay</store>
+    <seller>thepollies</seller>
+    <date>2010-01-09</date>
+    <total>9.73</total>
+    <item>
+      <price>5.98</price>
+      <album>
+        <band>Exciter</band>
+        <title>Heavy Metal Maniac</title>
+        <format>CASSETTE</format>
+      </album>
+      <album>
+        <band>Exciter</band>
+        <title>Long Live the Loud</title>
+        <format>CASSETTE</format>
+      </album>
+      <album>
+        <band>Exciter</band>
+        <title>Exciter</title>
+        <format>CASSETTE</format>
+      </album>
+    </item>
+    <item>
+      <price>1.99</price>
+      <album>
+        <band>Mercyful Fate</band>
+        <title>In the Shadows</title>
+        <format>CASSETTE</format>
+      </album>
+    </item>
   </sale>
-</buyinghistory>
 ```
 But apparently I wasn't satisfied with that, so I made a couple sed scripts to do the same thing.  
 This one.
