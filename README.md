@@ -292,5 +292,9 @@ At some point I picked up a book about XSLT at a Goodwill and held onto it becau
 
 ![Peter Grace's Tape Buying History](buyinghistory-scrshot-1.png)
 
-Because is so verbose the upkeep of entering new sales became tiresome, so I wrote a bash script to update my XML file--bh.xml, I called it. My pride and joy. 
+Because XML is so verbose the upkeep of entering new sales became tiresome, so I wrote a bash script to update my XML file--bh.xml, I called it. My pride and joy.  
+Unfortunately, I don't have those scripts anymore.  
+My goal was to put it online and have a webpage to add sales. Here is the page.  
+![Add Sale to Buying History](buyinghistory-addsale.png)
+
 
