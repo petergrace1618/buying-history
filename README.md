@@ -9,7 +9,7 @@ thepollies:Exciter{"Heavy Metal Maniac","Long Live the Loud","Exciter"},Mercyful
 ...
 ```
 Not exactly reader-friendly.  
-In 2008 while I was going to PCC for Computer Science I decided to convert my precious gobbledygook into XML. I did it in Java because I was taking a Java course at the time. I even wrote it out in pseudocode first in proper academic fashion. (Unfortunately I have neither the Java nor the pseudo code anymore) It worked beautifully. 
+In 2008 while I was going to PCC for Computer Science I decided to convert my precious gobbledygook into XML. I did it in Java because I was taking a Java course at the time. I even wrote it out in pseudocode first in proper academic fashion. Unfortunately I have neither the Java nor the pseudo code anymore, but it worked beautifully. 
 ```xml
 <buyinghistory>
   <sale seller="_gnasher670" subtotal="2.37" total="7.27" date="2007-01-03">
