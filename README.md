@@ -8,7 +8,7 @@ tragedian1:Slayer{"Reign In Blood":7.50},Trouble{"The Skull":2.99},Xentrix{"Shat
 mmusic:Oingo Boingo{"Best Of Boingo":4.99,"Boingo Alive":5.99},Sacrilege{"Within The Prophecy":5.99},Holy Moses{"Queen Of Siam":5.99},Nevermore{"Nevermore":4.99}::33.45:4/24/08
 ```
 Not exactly reader-friendly.  
-In 2008 I found a book about XSLT and decided to convert my precious gobbledygook into XML. 
+In 2008 while I was going to PCC I decided to convert my precious gobbledygook into XML. My first idea was to make a sed script to convert it, but then I realized it would take several passes. I happened to be taking a course in Java at the time so I decided to use Java to do it (unfortunately I don't have the source code anymore). I wrote out the program in pseudocode first before I wrote the code. It worked beautifully. 
 ```xml
 <buyinghistory>
   <sale seller="_gnasher670" subtotal="2.37" total="7.27" date="2007-01-03">
@@ -41,9 +41,32 @@ In 2008 I found a book about XSLT and decided to convert my precious gobbledygoo
       <title>Shattered Existence</title>
     </album>
   </sale>
+  <sale seller="mmusic" subtotal="" total="33.45" date="2008-04-24">
+    <album price="4.99">
+      <band>Oingo Boingo</band>
+      <title>Best Of Boingo</title>
+    </album>
+    <album price="5.99">
+      <band>Oingo Boingo</band>
+      <title>Boingo Alive</title>
+    </album>
+    <album price="5.99">
+      <band>Sacrilege</band>
+      <title>Within The Prophecy</title>
+    </album>
+    <album price="5.99">
+      <band>Holy Moses</band>
+      <title>Queen Of Siam</title>
+    </album>
+    <album price="4.99">
+      <band>Nevermore</band>
+      <title>Nevermore</title>
+    </album>
+  </sale>
 </buyinghistory>
 ```
-At a certain point I realized a couple things. I wasn't keeping track of where I bought the tapes (eBay or Aamazon), some sales contained multiple tapes in one item, and occasionally I bought a CD. So I had to alter my schema to reflect that. I also decided to keep all data in elements instead of attributes.  
+At a certain point I realized a couple things. I wasn't keeping track of where I bought the tapes (eBay or Aamazon), some sales contained multiple tapes in one item, and once in a while I bought a CD. In other words, my schema was inadequate. So in 2008 I decided
+
 Around the time the Mayans allegedly predicted that the end of the world, I found a book about XSLT, and with a little research into PHP, I converted my XML file into HTML.  
 ![Peter Grace's Tape Buying History](buyinghistory-scrshot-1.png)
 
