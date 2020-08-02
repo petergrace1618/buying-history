@@ -287,6 +287,14 @@ s!<tit!      &!g
 
 ## END ##
 ```
+I even had a makefile to simplify the process.
+```make
+bh.xml : bh.old convertbh.sed
+	sed -f convertbh.sed bh.old > bh.xml
+
+bh.old : Buyinghistory.txt
+	cp Buyinghistory.txt bh.old
+```
 Then at a certain point I realized a couple things. I wasn't keeping track of the "store" (eBay or Aamazon, etc.), some sales contained multiple tapes in one item, and once in a while I bought a CD. In other words, my schema was inadequate.
 At some point I picked up a book about XSLT at a Goodwill and held onto it because I thought it might be useful. Then around the time the Mayans allegedly predicted that the end of the world, I dusted it off, and with a little research into PHP, I converted my XML into HTML.  
 
