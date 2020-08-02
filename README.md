@@ -1,4 +1,5 @@
 # buying-history
+I used to have a meager collection of cassette tapes when I was a teenager, but I sold most of them during a turning point in my life. 
 I started buying cassette tapes on eBay and Amazon in 2006. I kept track of my purchases in a text file with a format of my own making.
 ```
 _gnasher670:Testament{"Practice What You Preach","The New Order"}:2.37:7.27:1/3/07
@@ -41,3 +42,5 @@ In 2007 while I was going to PCC for Computer Science I wrote a program in Java 
   </sale>
 </buyinghistory>
 ```
+At point I realized a couple things. I wasn't keeping track of where I bought the tapes (eBay or Aamazon), some sales contained multiple tapes in one item, and sometimes I would buy a CD. So I had to alter my schema to reflect that.
+
