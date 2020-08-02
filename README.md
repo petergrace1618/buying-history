@@ -192,18 +192,19 @@ bh.old : Buyinghistory.txt
 	cp Buyinghistory.txt bh.old
 ```
 This was all done in Cygwin using the command line and vi text editor, by the way.
-At a certain point though I realized a couple things: I wasn't keeping track of the "store" (eBay or Aamazon, etc.), some tapes were sold as a "lot" meaning multiple tapes sold as one item, the subtotal attribute was redundant, and once in a while I bought a CD. In other words, my schema was inadequate.
+At a certain point though I realized a couple things: 
+- I wasn't keeping track of the "store" (eBay or Aamazon, etc.)
+- Some tapes were sold as a "lot" meaning multiple tapes sold as one item 
+- The subtotal attribute was redundant 
+- And once in a while I bought a CD
+In other words, my schema was inadequate.
 ## Stage Two
-Around the time of the Mayan apocalypse, I picked up a book about XSLT at Goodwill and with a little research into PHP I converted my XML into HTML. And my fetish came alive for the whole world to see.
-
+Around the time of the Mayan apocalypse, I picked up a book about XSLT at Goodwill and with a little research into PHP I was able to convert my XML into HTML. And my fetish came alive for the whole world to see.
 ![Peter Grace's Tape Buying History](buyinghistory-scrshot-1.png)
-
-I still had to update my XML manually, and the upkeep of entering new sales became tiresome, so I wrote a bash script to update my XML file, or bh.xml as I called it. My pride and joy. Unfortunately, I don't have those scripts anymore.  
-My goal the whole time was to put it online and have a webpage to add sales. 
+I still had to update my XML file manually. The upkeep of entering new sales became tiresome, so I wrote a bash script to update my XML file, or bh.xml as I called it. My pride and joy. Unfortunately, I don't have the script anymore. My ultimate goal however was to store it in a database and create a web form to update it.
 ![Add Sale to Buying History](buyinghistory-addsale.png)
 I tried to use Javascript, but my knowledge of Javascript was limited to an Introduction to Computer Science class I took in 2005. I wasn't even aware of jQuery at the time. This was 2013. For years I kept buying tapes and updating bh.xml manually (utilizing my bash script, of course), until July of 2020 when I was given the opportunity to create a console application in C# using Entity Framework Code First. It should come as no surprise that my first thought was to bring my years-long goal to fruition. And so I did.  
-
-
+## Stage Three
 I realize that it's purely a vanity piece of software but it means a lot to me.
 
 
