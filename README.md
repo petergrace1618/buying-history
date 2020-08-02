@@ -3,8 +3,7 @@ I started buying cassette tapes on eBay and Amazon in 2006. I kept track of my p
 ```
 #SELLER:BAND{"ALBUM"[:PRICE][,"ALBUM"[:PRICE]]}[,BAND{"ALBUM"[:PRICE][,"ALBUM"[:PRICE]]}]:[SUBTOTAL]:TOTAL:DATE
 _gnasher670:Testament{"Practice What You Preach","The New Order"}:2.37:7.27:1/3/07
-tragedian1:Slayer{"Reign In Blood":7.50},Trouble{"The Skull":2.99},
-Xentrix{"Shattered Existence":7.16}::21.65:1/19/07
+tragedian1:Slayer{"Reign In Blood":7.50},Trouble{"The Skull":2.99},Xentrix{"Shattered Existence":7.16}::21.65:1/19/07
 thepollies:Exciter{"Heavy Metal Maniac","Long Live the Loud","Exciter"},Mercyful Fate{"In the Shadows":1.99}::9.73:1/9/07
 ```
 Not exactly reader-friendly.  
