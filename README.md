@@ -207,7 +207,10 @@ In other words, my schema was inadequate.
 
 ## Stage Two
 
-Around the time of the Mayan apocalypse, I picked up a book about XSLT at Goodwill and with a little research into PHP I was able to convert my XML into HTML. And my fetish came alive for the whole world to see. **Behold!** [Peter Grace's Tape Buying History](https://petergrace.site/buying-history/)  
+Around the time of the Mayan apocalypse, I picked up a book about XSLT at Goodwill and with a little research into PHP I was able to convert my XML into HTML. And my fetish came alive for the whole world to see. **Behold!**
+
+[Peter Grace's Tape Buying History](https://petergrace.site/buying-history/)
+
 I still had to update my XML file manually. The upkeep of entering new sales became tiresome, so I wrote a bash script to update my XML file, or bh.xml as I called it. My pride and joy. Unfortunately, I don't have the script anymore. My ultimate goal however was to store it in a database and create a web form to update it.  
 
 ![Add Sale to Buying History](buyinghistory-addsale.png)  
