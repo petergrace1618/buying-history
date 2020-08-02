@@ -1,5 +1,5 @@
 # buying-history  
-As a teenager I had a meager collection of Heavy Metal cassette tapes, but I sold them when I was 19; I guess I felt I had outgrown them. Then in 2006 when I discovered eBay and Amazon at 30, I started collecting them again. I guess I felt nostalgic. And because I'm fastidious, I kept track of my purchases in a text file with a format of my own making.
+As a teenager I had a meager collection of Heavy Metal cassette tapes, but I sold them when I was 19; I guess I felt I had outgrown them. Then in 2006 when I discovered eBay and Amazon at 30, I started collecting them again. I guess I wanted to rekindle my youth. And because I'm fastidious, I kept track of my purchases in a text file with a format of my own making.
 ## Stage One
 ```
 #SELLER:BAND{"ALBUM"[:PRICE][,"ALBUM"[:PRICE]]}[,BAND{"ALBUM"[:PRICE][,"ALBUM"[:PRICE]]}]:[SUBTOTAL]:TOTAL:DATE
@@ -10,7 +10,7 @@ roundflat:Entombed{"Clandestine"}:1.52:5.52:1/9/07
 roger2095:Mercyless{"Abject Offering"}:4.99:6.74:1/11/07
 bigmustafa:Helloween{"Judas":3.00},Pantera{"Vulgar Display Of Power":3.00},Testment{"The Legacy":3.00},King Diamond{"Fatal Portrait":3.00}::16.50:1/12/07
 millimidian:King Diamond{"Them"}:3.50:6.45:1/16/07
-tragedian1:Slayer{"Reign In Blood":7.50},Trouble{"The Skull":2.99},Xentrix{"Shattered Existence":7.16}::21.65:1/19/07
+mmusic:Oingo Boingo{"Best Of Boingo":4.99,"Boingo Alive":5.99},Sacrilege{"Within The Prophecy":5.99},Holy Moses{"Queen Of Siam":5.99},Nevermore{"Nevermore":4.99}::33.45:4/24/08
 ...
 ```
 Not exactly reader-friendly.  
@@ -41,37 +41,27 @@ Then in 2008 while I was going to PCC for Computer Science I decided to convert 
       <title>Shattered Existence</title>
     </album>
   </sale>
-  <sale>
-    <store>eBay</store>
-    <seller>thepollies</seller>
-    <date>2010-01-09</date>
-    <total>9.73</total>
-    <item>
-      <price>5.98</price>
-      <album>
-        <band>Exciter</band>
-        <title>Heavy Metal Maniac</title>
-        <format>CASSETTE</format>
-      </album>
-      <album>
-        <band>Exciter</band>
-        <title>Long Live the Loud</title>
-        <format>CASSETTE</format>
-      </album>
-      <album>
-        <band>Exciter</band>
-        <title>Exciter</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-    <item>
-      <price>1.99</price>
-      <album>
-        <band>Mercyful Fate</band>
-        <title>In the Shadows</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
+  <sale seller="mmusic" date="2008-04-24" subtotal="" total="33.45">
+    <album price="4.99">
+      <band>Oingo Boingo</band>
+      <title>Best Of Boingo</title>
+    </album>
+    <album price="5.99">
+      <band>Oingo Boingo</band>
+      <title>Boingo Alive</title>
+     </album>
+     <album price="5.99"
+       <band>Sacrilege</band>
+       <title>Within The Prophecy</title>
+     </album>
+     <album price="5.99">
+       <band>Holy Moses</band>
+       <title>Queen Of Siam</title>
+     </album>
+     <album price="4.99">
+       <band>Nevermore</band>
+       <title>Nevermore</title>
+     </album>
   </sale>
   ...
 </buyinghistory>
