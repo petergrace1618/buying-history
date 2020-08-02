@@ -8,7 +8,7 @@ tragedian1:Slayer{"Reign In Blood":7.50},Trouble{"The Skull":2.99},Xentrix{"Shat
 ```
 Not exactly reader-friendly.  
 In 2007 while I was going to PCC for Computer Science I wrote a program in Java to convert this file to XML. 
-```
+```xml
 <buyinghistory>
   <sale seller="_gnasher670" subtotal="2.37" total="7.27" date="2007-01-03">
     <album>
@@ -42,5 +42,8 @@ In 2007 while I was going to PCC for Computer Science I wrote a program in Java 
   </sale>
 </buyinghistory>
 ```
-At point I realized a couple things. I wasn't keeping track of where I bought the tapes (eBay or Aamazon), some sales contained multiple tapes in one item, and sometimes I would buy a CD. So I had to alter my schema to reflect that.
+At a certain point I realized a couple things. I wasn't keeping track of where I bought the tapes (eBay or Aamazon), some sales contained multiple tapes in one item, and occasionally I bought a CD. So I had to alter my schema to reflect that. I also decided to keep all data in elements instead of attributes.  
+Around the time the Mayans allegedly predicted that the end of the world, I found a book about XSLT, and with a little research into PHP, I converted my XML file into HTML. 
+![Peter Grace's Tape Buying History]()
+
 
