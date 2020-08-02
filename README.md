@@ -65,9 +65,9 @@ In 2008 while I was going to PCC I decided to convert my precious gobbledygook i
   </sale>
 </buyinghistory>
 ```
-At a certain point I realized a couple things. I wasn't keeping track of where I bought the tapes (eBay or Aamazon), some sales contained multiple tapes in one item, and once in a while I bought a CD. In other words, my schema was inadequate. So in 2008 I decided
+Then at a certain point I realized a couple things. I wasn't keeping track of the "store" (eBay or Aamazon), some sales contained multiple tapes in one item, and once in a while I bought a CD. In other words, my schema was inadequate.
+At some point I picked up a book about XSLT at a Goodwill and held onto it because I thought it might be useful. Then around the time the Mayans allegedly predicted that the end of the world, I dusted it off, and with a little research into PHP, I converted my XML into HTML.  
 
-Around the time the Mayans allegedly predicted that the end of the world, I found a book about XSLT, and with a little research into PHP, I converted my XML file into HTML.  
 ![Peter Grace's Tape Buying History](buyinghistory-scrshot-1.png)
 
 I created a Bash script to add new sales 
