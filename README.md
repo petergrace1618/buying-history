@@ -6,10 +6,15 @@ As a teenager I had a meager collection of Heavy Metal cassette tapes, but I sol
 _gnasher670:Testament{"Practice What You Preach","The New Order"}:2.37:7.27:1/3/07
 tragedian1:Slayer{"Reign In Blood":7.50},Trouble{"The Skull":2.99},Xentrix{"Shattered Existence":7.16}::21.65:1/19/07
 thepollies:Exciter{"Heavy Metal Maniac","Long Live the Loud","Exciter"},Mercyful Fate{"In the Shadows":1.99}::9.73:1/9/07
+roundflat:Entombed{"Clandestine"}:1.52:5.52:1/9/07
+roger2095:Mercyless{"Abject Offering"}:4.99:6.74:1/11/07
+bigmustafa:Helloween{"Judas":3.00},Pantera{"Vulgar Display Of Power":3.00},Testment{"The Legacy":3.00},King Diamond{"Fatal Portrait":3.00}::16.50:1/12/07
+millimidian:King Diamond{"Them"}:3.50:6.45:1/16/07
+tragedian1:Slayer{"Reign In Blood":7.50},Trouble{"The Skull":2.99},Xentrix{"Shattered Existence":7.16}::21.65:1/19/07
 ...
 ```
 Not exactly reader-friendly.  
-In 2008 while I was going to PCC for Computer Science I decided to convert my precious gobbledygook into XML. I did it in Java because I was taking a Java course at the time. I even wrote it out in pseudocode first in proper academic fashion. Unfortunately I have neither the Java nor the pseudo code anymore, but it worked beautifully. 
+Then in 2008 while I was going to PCC for Computer Science I decided to convert my precious gobbledygook into XML. I did it in Java because I was taking a Java course at the time. I even wrote it out in pseudocode first in proper academic fashion. Unfortunately I have neither the Java nor the pseudo code anymore, but it worked beautifully. 
 ```xml
 <buyinghistory>
   <sale seller="_gnasher670" subtotal="2.37" total="7.27" date="2007-01-03">
@@ -71,112 +76,7 @@ In 2008 while I was going to PCC for Computer Science I decided to convert my pr
   ...
 </buyinghistory>
 ```
-But apparently I wasn't satisfied with that, so as a programming exercise I wrote a couple sed scripts to do the same thing.  
-This one.
-```sed
-# convertbh.sed1 
-#
-# Usage: sed -f convertbh.sed bh.old
-#
-# A sed script that converts Buyinghistory.txt into XML. (Before applying
-# the script, album titles in the original file were surrounded by double
-# quotes using VI to facilitate processing.) All data in the file are saved as
-# element content, i.e. no attributes are used.
-
-## BEGIN ##
-
-# First line of file is comment, so have to insert before first line is deleted
-1i<buyinghistory>
-
-# delete comments
-/^#/d
-
-# Extract initial tags, and put all album info at beginning of line, so later
-# when the pattern space is appended to the hold space the unprocessed text
-# will be at start of line and can be easily erased.
-s!\([^:]*\):\(.*\):\([^:]*\):\([^:]*\):\([^:]*\)$!\2<buyer>\1</buyer>\
-<subtotal>\3</subtotal>\
-<total>\4</total>\
-<date>\5</date>\
-<items>!
-
-# save to hold space and isolate album info
-h 
-s!<.*>$!!
-
-# xml-ize album price
-s!":\([^,}]*\)\([,}]\)!"<price>\1</price>\2!g
-
-# if no price, add empty price tag
-s!"\([,}]\)!"<price></price>\1!g
-
-# xml-ize album title
-s!"\([^"]*\)"!<title>\1</title>!g
-
-# put all albums by same band on separate line
-s!},!\n!g
-
-# insert newline at beginning of line to facilitate processing album info
-s!^!\n!
-
-# xml-ize band name
-s!\n\([^{]*\){!\n<band>\1</band>!g
-
-# insert band tag for multiple albums by same band
-:loop
-s!\(<band>[^>]*>\)\(.*\),<ti!\1\2,\1<ti!
-t loop
-
-# put each album on separate line and get rid of closing brace
-s!>,!>\n!g
-s!}$!!
-
-# add album tag
-s!\n<ba!\n<album><ba!g
-s!ce>\n!ce></album>\n!g
-s!ce>$!ce></album>!
-
-# get rid of extraneous newline, and put all tags on separate line, but keep
-# empty price tags together
-s!^\n!!
-s!><!>\n<!g
-s!\n</p!</p!g
-
-# append hold space and delete unprocessed text
-H
-g
-s!^[^<]*\(<.*\)!\1!
-
-# Insert outer tags (each line in old file represents one sale).
-i\
-  <sale>
-a\
-    </items>\
-  </sale>
-$a\
-</buyinghistory>
-
-# debug test
-#s!^!#SOL#!
-#s!$!#EOL#!
-#b
-
-# add indenting
- s!<buye!    &!g
- s!<subt!    &!g
- s!<tota!    &!g
-  s!<dat!    &!g
- s!<item!    &!g
-s!</item!    &!g
- s!<albu!      &!g
-s!</albu!      &!g
-  s!<ban!        &!g
- s!<titl!        &!g
- s!<pric!        &!g
-
-## END ##
-```
-And this one.
+Because XML is so verbose I continued tracking my purchases in my own format and used a sed script to convert it to XML. 
 ```sed
 # convertbh.sed2
 #
@@ -301,8 +201,9 @@ bh.xml : bh.old convertbh.sed
 bh.old : Buyinghistory.txt
 	cp Buyinghistory.txt bh.old
 ```
-Then at a certain point I realized a couple things. I wasn't keeping track of the "store" (eBay or Aamazon, etc.), some sales contained multiple tapes in one item, and once in a while I bought a CD. In other words, my schema was inadequate.
-At some point I picked up a book about XSLT at a Goodwill and held onto it because I thought it might be useful. Then around the time the Mayans allegedly predicted that the end of the world, I dusted it off, and with a little research into PHP, I converted my XML into HTML.  
+## Stage Two
+At a certain point I realized a couple things: I wasn't keeping track of the "store" (eBay or Aamazon, etc.), some tapes were sold as a "lot" meaning multiple tapes sold as one item, the subtotal attribute was redundant, and once in a while I bought a CD. In other words, my schema was inadequate.
+around the time the Mayans allegedly predicted that the end of the world, I picked up a book about XSLT at Goodwill and with a little research into PHP I converted my XML into HTML. And now my fetish saw the light of day for all the world to see.
 
 ![Peter Grace's Tape Buying History](buyinghistory-scrshot-1.png)
 
