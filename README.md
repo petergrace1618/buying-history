@@ -45,28 +45,6 @@ So in 2008 while I was going to PCC for Computer Science I decided to convert my
       <title>Shattered Existence</title>
     </album>
   </sale>
-  <sale seller="mmusic" subtotal="" total="33.45" date="2008-04-24">
-    <album price="4.99">
-      <band>Oingo Boingo</band>
-      <title>Best Of Boingo</title>
-    </album>
-    <album price="5.99">
-      <band>Oingo Boingo</band>
-      <title>Boingo Alive</title>
-     </album>
-     <album price="5.99"
-       <band>Sacrilege</band>
-       <title>Within The Prophecy</title>
-     </album>
-     <album price="5.99">
-       <band>Holy Moses</band>
-       <title>Queen Of Siam</title>
-     </album>
-     <album price="4.99">
-       <band>Nevermore</band>
-       <title>Nevermore</title>
-     </album>
-  </sale>
   ...
 </buyinghistory>
 ```
@@ -395,52 +373,7 @@ And the all new bh.xml was born.
       </album>
     </item>
   </sale>
-  <sale>
-    <store>eBay</store>
-    <seller>mmusic</seller>
-    <date>2008-04-24</date>
-    <total>33.45</total>
-    <item>
-      <price>4.99</price>
-      <album>
-        <band>Oingo Boingo</band>
-        <title>Best Of Boingo</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-    <item>
-      <price>5.99</price>
-      <album>
-        <band>Oingo Boingo</band>
-        <title>Boingo Alive</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-    <item>
-      <price>5.99</price>
-      <album>
-        <band>Sacrilege</band>
-        <title>Within The Prophecy</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-    <item>
-      <price>5.99</price>
-      <album>
-        <band>Holy Moses</band>
-        <title>Queen Of Siam</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-    <item>
-      <price>4.99</price>
-      <album>
-        <band>Nevermore</band>
-        <title>Nevermore</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-  </sale>
+  ...
 </bh>
 ```
 
