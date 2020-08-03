@@ -199,7 +199,8 @@ bh.old : Buyinghistory.txt
 
 (This was all done in Cygwin using the command line and vi text editor, by the way.)  
 
-In the back of my mind though I had a feeling that my XML schema may not be as robust as it could be, but I didn't give it much thought as I was too consumed with the vagaries and vicissitudes of everyday life. Then one day it happened and I was confronted with a new stark, brutal reality.   
+In the back of my mind though I had a feeling that my XML schema may not be as robust as it could be, but I didn't give it much thought as I was too consumed with the vagaries and vicissitudes of everyday life. Then one day it happened and I was confronted with a new stark reality.   
+
 On January 9 2010, I broke my schema.
 
 You see, some tapes are sold as a *lot* meaning multiple tapes sold as one item. To account for this, I used a `price` attribute on the `<album>` element for tapes sold individually and a `subtotal` attribute on the `<sale>` element for tapes sold as a lot. This had been adequate until one crisp January afternoon when I decided to buy a single tape *and* a lot from the same seller at the same time. And that was it.  
@@ -209,7 +210,11 @@ It was time to refactor my XML.
 
 ## Stage Two
 
-It was really a simple solution, melodrama notwithstanding. I wrapped each individual album and lot in an `<item>` tag with its own `price` attribute thus ridding my life of the dreaded `subtotal`. Since I was restructuring already, I also decided to forgo using attributes altogether and store everything in its own element to make it easier to process in XSLT. I also abbreviated the name of the root node, influenced by the terseness of Linux commands.
+It was really a simple solution, melodrama notwithstanding.   
+- I wrapped each individual album and lot in an `<item>` tag. 
+- I decided to forgo using attributes altogether and store everything in its own element to make it easier to process in XSLT, 
+- thus moving `price` from an attribute of `<album>` to a child element of `<item>` and ridding myself of the dreaded subtotal once and for all. 
+- Finally, influenced by the terseness of Linux commands and willfully flaunting XML's inherent verbosity, I abbreviated the name of the root node. (Admittedly, a manifestation of my antinomian tendencies.)
 
 ```xml
 <bh>
@@ -322,7 +327,7 @@ I still had to update my XML file manually. The upkeep of entering new sales bec
 
 I tried to use Javascript, but my knowledge of Javascript was limited to an Introduction to Computer Science class I took in 2005. I wasn't even aware of jQuery at the time. This was 2013. For years I kept buying tapes and updating bh.xml manually (utilizing my bash script, of course), until July of 2020 when I was given the opportunity to create a console application in C# using Entity Framework Code First. It should come as no surprise that my first thought was to bring my years-long goal to fruition. And so I did.  
 
-## Stage Four
+## Stage Three
 
 I realize that it's purely a vanity piece of software but it means a lot to me.
 
