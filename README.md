@@ -264,7 +264,7 @@ s!"!!g
 w titles.old
 ```
 
-And some ancillary scripts like this one:
+And a few ancillary scripts like this one:
 
 ```
 # albumsby
