@@ -1,7 +1,7 @@
 # buying-history  
 As a teenager I had a meager collection of Heavy Metal cassette tapes, but I sold them when I was 19; I guess I felt I had outgrown them. Then in 2006 when I discovered eBay and Amazon at 30, I started collecting them again. I guess I wanted to rekindle my youth. And because I'm fastidious, I kept track of my purchases in a text file with a format of my own making.
 
-## Stage One
+## Phase 1
 ```
 #SELLER:BAND{"ALBUM"[:PRICE][,"ALBUM"[:PRICE]]}[,BAND{"ALBUM"[:PRICE][,"ALBUM"[:PRICE]]}]:[SUBTOTAL]:TOTAL:DATE
 _gnasher670:Testament{"Practice What You Preach","The New Order"}:2.37:7.27:1/3/07
@@ -14,8 +14,10 @@ millimidian:King Diamond{"Them"}:3.50:6.45:1/16/07
 mmusic:Oingo Boingo{"Best Of Boingo":4.99,"Boingo Alive":5.99},Sacrilege{"Within The Prophecy":5.99},Holy Moses{"Queen Of Siam":5.99},Nevermore{"Nevermore":4.99}::33.45:4/24/08
 ...
 ```
+
 Not exactly reader-friendly.  
-Then in 2008 while I was going to PCC for Computer Science I decided to convert my precious gobbledygook into XML. I did it in Java because I was taking a Java course at the time. I even wrote it in pseudocode first in proper academic fashion. Unfortunately I have neither the Java nor the pseudo code anymore, but it worked beautifully. 
+Then in 2008 while I was going to PCC for Computer Science I decided to convert my precious gobbledygook into XML. I did it in Java because I was taking a Java course at the time. I even wrote it in pseudocode first in proper academic fashion. Unfortunately I have neither the Java nor the pseudocode anymore, but it worked beautifully. 
+
 ```xml
 <buyinghistory>
   <sale seller="_gnasher670" subtotal="2.37" total="7.27" date="2007-01-03">
@@ -71,7 +73,7 @@ Then in 2008 while I was going to PCC for Computer Science I decided to convert 
 Because XML is so verbose I continued tracking my purchases in my own format and used a sed script to convert it to XML.
 
 ```sed
-# convertbh.sed2
+# convertbh.sed
 #
 # Usage: sed -f convertbh.sed bh.old
 #
@@ -187,7 +189,7 @@ s!<tit!      &!g
 ## END ##
 ```
 
-I even had a makefile to simplify the process. 
+I had a makefile to simplify the process. 
 
 ```make
 bh.xml : bh.old convertbh.sed
@@ -197,9 +199,66 @@ bh.old : Buyinghistory.txt
 	cp Buyinghistory.txt bh.old
 ```
 
+I wrote a few scripts to test my conversion.
+
+	```sed
+#n
+/<subtotal>/{
+s! *<subtotal>\([^<]*\).*!Subtotal \1!
+p
+}
+
+/<total>/{
+s! *<total>\([^<]*\).*!Total \1!
+p
+}
+
+/<price>/{
+s! *<price>\([^<]*\).*!Price \1!
+p
+}
+
+/<\/sale>/{
+i\
+
+}
+```
+
+
+
+```
+Subtotal 2.37
+Total 7.27
+Price 
+Price 
+
+Subtotal 2.75
+Total 8.80
+Price 
+
+Subtotal 1.52
+Total 5.52
+Price 
+
+Subtotal 4.99
+Total 6.74
+Price 
+
+Subtotal 0.99
+Total 3.49
+Price 
+
+Subtotal 
+Total 16.50
+Price 3.00
+Price 3.00
+Price 3.00
+Price 3.00
+```
+
 (This was all done in Cygwin using the command line and vi text editor, by the way.)  
 
-In the back of my mind though I had a feeling that my XML schema may not be as robust as it could be, but I didn't give it much thought as I was too consumed with the vagaries and vicissitudes of everyday life. Then one day it happened and I was confronted with a new stark reality.   
+In the back of my mind, though, I had a feeling that my XML schema may not be as robust as it could be, but I didn't give it much thought as I was too consumed with the vagaries and vicissitudes of everyday life. Then one day it happened and I was confronted with a new stark reality.   
 
 On January 9 2010, I broke my schema.
 
@@ -208,13 +267,15 @@ My Weltanschauung went kaput.
 
 It was time to refactor my XML.
 
-## Stage Two
+## Phase 2
 
 It was really a simple solution, melodrama notwithstanding.   
 - I wrapped each individual album and lot in an `<item>` tag. 
-- I decided to forgo using attributes altogether and store everything in its own element to make it easier to process in XSLT, 
-- thus moving `price` from an attribute of `<album>` to a child element of `<item>` and ridding myself of the dreaded subtotal once and for all. 
-- Finally, influenced by the terseness of Linux commands and willfully flaunting XML's inherent verbosity, I abbreviated the name of the root node. (Admittedly, a manifestation of my antinomian tendencies.)
+- I dispensed with using attributes altogether and moved everything into its own element to make it easier to process in XSLT.
+- I moved `price` from an attribute of `<album>` to a child element of `<item>` thus ridding myself of the dreaded subtotal once and for all. 
+- And finally, influenced by the terseness of Linux commands and willfully flaunting XML's inherent verbosity, I abbreviated the name of the root node. (Admittedly, a manifestation of my antinomian tendencies.)
+
+And the all new bh.xml is born.
 
 ```xml
 <bh>
@@ -316,16 +377,15 @@ It was really a simple solution, melodrama notwithstanding.
 </bh>
 ```
 
-Around the time of the Mayan apocalypse, I picked up a book about XSLT at Goodwill and with a little research into PHP I was able to convert my XML into HTML. And my fetish came alive for the whole world to see.   
-**Behold!**
+Around the time of the Mayan apocalypse, I picked up a book called *XSLT: Working with XML and HTML* by Khun Yee Fung which I used it to transform my XML into HTML. I also got an account with a web hosting service and with a FileZilla FTP client and a little research into PHP, I brought my fetish to the light of day.
 
 [Peter Grace's Tape Buying History](https://petergrace.site/buying-history/)
 
-I still had to update my XML file manually. The upkeep of entering new sales became tiresome, so I wrote a bash script to update my XML file, or bh.xml as I called it. My pride and joy. Unfortunately, I don't have the script anymore. My ultimate goal however was to store it in a database and create a web form to update it.  
+I still had to update my XML file manually, though, and the upkeep of entering new sales became tiresome, so I wrote a bash script to update it for me. Unfortunately, I don't have the script anymore. 
 
-![Add Sale to Buying History](buyinghistory-addsale.png)  
+Ultimately however, my goal was to store it in a database and create a web form to update it. I started making one using Javascript but my knowledge of Javascript was limited to an Introduction to Computer Science class I took in 2005; I wasn't even aware of jQuery at the time. This was 2013. 
 
-I tried to use Javascript, but my knowledge of Javascript was limited to an Introduction to Computer Science class I took in 2005. I wasn't even aware of jQuery at the time. This was 2013. For years I kept buying tapes and updating bh.xml manually (utilizing my bash script, of course), until July of 2020 when I was given the opportunity to create a console application in C# using Entity Framework Code First. It should come as no surprise that my first thought was to bring my years-long goal to fruition. And so I did.  
+For years I kept buying tapes and updating bh.xml manually (utilizing my bash script, of course), until July of 2020 when I was given the opportunity to create a console application in C# using Entity Framework Code First. It should come as no surprise that my first thought was to bring my years-long goal to fruition. And so I did.  
 
 ## Stage Three
 
