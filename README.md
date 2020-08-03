@@ -70,7 +70,7 @@ Then in 2008 while I was going to PCC for Computer Science I decided to convert 
 </buyinghistory>
 ```
 
-Because XML is so verbose I continued tracking my purchases in my own format and used a sed script to convert it to XML.
+Because XML is so verbose I continued tracking my purchases in my own text format and used a sed script to convert it to XML.
 
 ```sed
 # convertbh.sed
