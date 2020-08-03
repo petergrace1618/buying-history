@@ -389,6 +389,10 @@ In July of 2020 as a student at the Tech Academy, I had the opportunity to creat
 
 ![BuyingHistory console app screenshot](buyinghistory-console-scrshot-1.png)
 
+![BuyingHistory console app screenshot](buyinghistory-console-scrshot-2.png)
+
+![BuyingHistory console app screenshot](buyinghistory-console-scrshot-3.png)
+
 So what's next for Phase 4? I discovered/realized a few things while writing this README. I 
 - I want to change the `<store>`, `<seller>`, `<total>`, `<date>`, and `<price>` elements back to being attributes. It looks more sleek, and it's also more colorful with syntax highlighting.
 - The console app needs error checking to test for empty strings on input.
