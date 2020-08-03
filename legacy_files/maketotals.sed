@@ -1,4 +1,9 @@
 #n
+#
+# maketotals.sed
+# Output should be redirected to a file called totals 
+# which is then used by printtotal.awk
+#
 /<subtotal>/{
 s! *<subtotal>\([^<]*\).*!Subtotal \1!
 p

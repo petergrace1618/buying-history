@@ -321,20 +321,20 @@ namespace BuyingHistory
                 Console.WriteLine();
         }
 
-        static void PrintUsage(string e = null)
+        static void PrintUsage(string errorMsg = null)
         {
-            string f = System.IO.Path.GetFileNameWithoutExtension(Environment.GetCommandLineArgs()[0]).ToLower();
-            string u =
+            string basename = System.IO.Path.GetFileNameWithoutExtension(Environment.GetCommandLineArgs()[0]);
+            string usageStr =
                 "Usage:\n" +
-                $"{f} add | print | xml [FILE]\n" +
+                $"{basename} [ add | print | xml [FILE] ]\n" +
                 "\n" +
                 "add        Add sale to database\n" +
-                "print      Print all sales in database\n" +
-                "xml        Dump contents of DB as XML to stdout.\n" +
+                "print      Print contents of DB in human readable form to stdout\n" +
+                "xml        Print contents of DB as XML to stdout.\n" +
                 "xml FILE   Save contents of DB as XML to FILE\n";
-            if (!String.IsNullOrEmpty(e))
-                Console.WriteLine($"{f}: {e}");
-            Console.WriteLine(u);
+            if (!String.IsNullOrEmpty(errorMsg))
+                Console.WriteLine($"{basename}: {errorMsg}");
+            Console.WriteLine(usageStr);
         }
     }
 }

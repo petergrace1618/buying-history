@@ -5,11 +5,9 @@
 # Displays all the albums by band specified on command line
 
 if [ $# -eq 0 ]; then
-	echo "Searches bh.xml and displays all albums by band"
-	echo "specified on command line."
-	echo "Spelling of band must me same as it is in bh.xml"
+	echo Usage: albumsby BAND
 	echo 
-	echo "Usage: albumsby band"
+	echo Searches bh.xml and displays all albums by BAND specified on command line.
 	exit
 fi	
 
@@ -18,14 +16,16 @@ if ! grep -qi "<band>$*<" bh.xml; then
 	exit 1
 fi	
 
-echo $*:
-name=`lcase $*`
+# Command line args are converted to lowercase as is the file data
+# thus making the search case-insensitive
+band=`echo $* | sed -e "/.*/y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/"`
 
-S1="/.*/y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/
-/<band>$name/{"
-S2='n
+script="/.*/y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/
+/<band>$band/{"
+script=$script'n
 s!^ *<title>\([^<]*\).*!\t\1!
 p
 }'
 
-sed -n "${S1}${S2}" bh.xml
+echo $*:
+sed -n "$script" bh.xml
