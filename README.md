@@ -445,11 +445,9 @@ Around the time of the Mayan apocalypse, I picked up a book called *XSLT: Workin
 
 [Peter Grace's Tape Buying History](https://petergrace.site/buying-history/)
 
-I still had to update my XML file manually, though, and the upkeep of entering new sales became tiresome, so I wrote a bash script to update it for me. Unfortunately, I don't have the script anymore. 
-
 Ultimately however, my goal was to store it in a database and create a web form to update it. I started making one using Javascript but my knowledge of Javascript was limited to an Introduction to Computer Science class I took in 2005; I wasn't even aware of jQuery at the time. This was 2013. 
 
-For years I kept buying tapes and updating bh.xml manually (utilizing my bash script, of course), until July of 2020 when I was given the opportunity to create a console application in C# using Entity Framework Code First. It should come as no surprise that my first thought was to bring my years-long goal to fruition. And so I did.  
+For years I kept buying tapes and updating my XML file manually (utilizing a bash script, of course), until July of 2020 when I had the opportunity to create a console application in C# using Entity Framework Code First. It should come as no surprise that my first thought was to bring my years-long goal to fruition. And so I did.
 
 ## Stage Three
 
