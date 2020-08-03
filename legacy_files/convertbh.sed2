@@ -1,0 +1,114 @@
+# convertbh.sed2
+#
+# Usage: sed -f convertbh.sed bh.old
+#
+# A sed script that converts Buyinghistory.txt into XML. 
+# New in this version:
+# seller, subtotal, total, and date information are stored as attributes of the
+# sale element, and album price is stored as attribute of album element--the
+# items element is removed.  An xml declaration is also inserted at beginning
+# of file.
+
+## BEGIN ##
+
+# First line of file is comment, so have to insert before first line is deleted
+1i\
+<?xml version="1.0" encoding="US-ASCII" standalone="yes" ?>\
+<!DOCTYPE buyinghistory [\
+	<!ELEMENT buyinghistory (sale*)>\
+	<!ELEMENT sale (album*)>\
+	<!ELEMENT album (band, title)>\
+	<!ELEMENT band (#PCDATA)>\
+	<!ELEMENT title (#PCDATA)>\
+	<!ATTLIST sale seller CDATA #REQUIRED\
+				   subtotal CDATA #REQUIRED\
+				   total CDATA #REQUIRED\
+				   date CDATA #REQUIRED\
+	>\
+	<!ATTLIST album price CDATA #IMPLIED>\
+]>\
+<?xml-stylesheet type="text/xsl" href="bh.xsl" ?>\
+<buyinghistory>
+
+# delete comments
+/^#/d
+
+# Extract initial tags, and put all album info at beginning of line, so later
+# when the pattern space is appended to the hold space the unprocessed text
+# will be at start of line and can be easily erased.
+s!\([^:]*\):\(.*\):\([^:]*\):\([^:]*\):\([^:]*\)$!\2<sale seller="\1" subtotal="\3" total="\4" date="\5">!
+
+# convert date from M/D/YY to YYYY-MM-DD, save to hold space and isolate
+# album info
+s!\([0-9][0-9]\)/\([0-9][0-9]\)/\([0-9][0-9]\)!20\3-\1-\2!
+s!\([0-9][0-9]\)/\([0-9]\)/\([0-9][0-9]\)!20\3-\1-0\2!
+s!\([0-9]\)/\([0-9][0-9]\)/\([0-9][0-9]\)!20\3-0\1-\2!
+s!\([0-9]\)/\([0-9]\)/\([0-9][0-9]\)!20\3-0\1-0\2!
+h 
+s!<.*>$!!
+
+# xml-ize album price. # is added as a place holder to facilitate converting
+# the price element into an album attribute later.
+s!":\([^,}]*\)\([,}]\)!"#<price>\1</price>\2!g
+
+# if no price, add empty price tag
+s!"\([,}]\)!"#<price></price>\1!g
+
+# xml-ize album title
+s!"\([^"]*\)"!<title>\1</title>!g
+
+# put all albums by same band on separate line
+s!},!\n!g
+
+# insert newline at beginning of line to facilitate processing album info
+s!^!\n!
+
+# xml-ize band name. @ added as place holder to facilitate next step. Necessary
+# when there are multiple albums in a sale AND multiple albums by same bands.
+s!\n\([^{]*\){!\n@<band>\1</band>!g
+
+# insert band tag for multiple albums by same band, and delete @ place holder
+:loop
+s!\(<band>[^>]*>\)\([^@]*\),<ti!\1\2,\1<ti!
+t loop
+s!@!!g
+
+# put each album on separate line and get rid of closing brace
+s!>,!>\n!g
+s!}$!!
+
+# add album tag
+s!\n<ba!\n<album><ba!g
+s!ce>\n!ce></album>\n!g
+s!ce>$!ce></album>!
+
+# move price from being its own element to being attribute of album element,
+# and delete empty price attributes
+s!<album>\([^#]*\)#<price>\([^<]*\)</price>!<album price="\2">\1!g
+s! price=""!!g
+
+# get rid of extraneous newline, and put all tags on separate line
+s!^\n!!
+s!><!>\n<!g
+
+# append to hold space, retrieve new hold space, and delete unprocessed text
+H
+g
+s!^[^<]*\(<.*\)!\1!
+
+# Insert ending tags (each line in old file represents one sale). Indenting must
+# be added here because the inserted/appended text does not become part of the
+# pattern space.
+a\
+  </sale>
+$a\
+</buyinghistory>
+
+# add indenting
+s!<sal!  &!g
+s!<alb!    &!g
+s!</al!    &!g
+s!<ban!      &!g
+s!<tit!      &!g
+
+## END ##

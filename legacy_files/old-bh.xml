@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="US-ASCII" standalone="yes" ?>
+<!DOCTYPE buyinghistory [
+	<!ELEMENT buyinghistory (sale*)>
+	<!ELEMENT sale (album*)>
+	<!ELEMENT album (band, title)>
+	<!ELEMENT band (#PCDATA)>
+	<!ELEMENT title (#PCDATA)>
+	<!ATTLIST sale seller CDATA #REQUIRED
+				   subtotal CDATA #REQUIRED
+				   total CDATA #REQUIRED
+				   date CDATA #REQUIRED
+	>
+	<!ATTLIST album price CDATA #IMPLIED>
+]>
+<?xml-stylesheet type="text/xsl" href="bh.xsl" ?>
+<buyinghistory>
+  <sale seller="_gnasher670" subtotal="2.37" total="7.27" date="2007-01-03">
+    <album>
+      <band>Testament</band>
+      <title>Practice What You Preach</title>
+    </album>
+    <album>
+      <band>Testament</band>
+      <title>The New Order</title>
+    </album>
+  </sale>
+  <sale seller="222ct" subtotal="2.75" total="8.80" date="2007-01-07">
+    <album>
+      <band>Slayer</band>
+      <title>Haunting The Chapel</title>
+    </album>
+  </sale>
+  <sale seller="roundflat" subtotal="1.52" total="5.52" date="2007-01-09">
+    <album>
+      <band>Entombed</band>
+      <title>Clandestine</title>
+    </album>
+  </sale>
+  <sale seller="roger2095" subtotal="4.99" total="6.74" date="2007-01-11">
+    <album>
+      <band>Mercyless</band>
+      <title>Abject Offering</title>
+    </album>
+  </sale>
+  <sale seller="metalbladerecords1" subtotal="0.99" total="3.49" date="2007-01-12">
+    <album>
+      <band>Cannibal Corpse</band>
+      <title>Eaten Back To Life</title>
+    </album>
+  </sale>
+  <sale seller="bigmustafa" subtotal="" total="16.50" date="2007-01-12">
+    <album price="3.00">
+      <band>Helloween</band>
+      <title>Judas</title>
+    </album>
+    <album price="3.00">
+      <band>Pantera</band>
+      <title>Vulgar Display Of Power</title>
+    </album>
+    <album price="3.00">
+      <band>Testment</band>
+      <title>The Legacy</title>
+    </album>
+    <album price="3.00">
+      <band>King Diamond</band>
+      <title>Fatal Portrait</title>
+    </album>
+  </sale>
+  <sale seller="millimidian" subtotal="3.50" total="6.45" date="2007-01-16">
+    <album>
+      <band>King Diamond</band>
+      <title>Them</title>
+    </album>
+  </sale>
+  <sale seller="tragedian1" subtotal="" total="21.65" date="2007-01-19">
+    <album price="7.50">
+      <band>Slayer</band>
+      <title>Reign In Blood</title>
+    </album>
+    <album price="2.99">
+      <band>Trouble</band>
+      <title>The Skull</title>
+    </album>
+    <album price="7.16">
+      <band>Xentrix</band>
+      <title>Shattered Existence</title>
+    </album>
+  </sale>
+  <sale seller="roundflat" subtotal="" total="6.98" date="2007-01-21">
+    <album price="0.99">
+      <band>Anal Cunt</band>
+      <title>40 More Reasons To Hate Us</title>
+    </album>
+    <album price="0.99">
+      <band>Sadus</band>
+      <title>Swallowed In Black</title>
+    </album>
+  </sale>
+  <sale seller="emales02" subtotal="1.04" total="4.54" date="2007-01-21">
+    <album>
+      <band>Obituary</band>
+      <title>Cause Of Death</title>
+    </album>
+  </sale>
+  <sale seller="homegrownpunkr" subtotal="" total="6.44" date="2007-01-22">
+    <album price="0.01">
+      <band>Suicidal Tendencies</band>
+      <title>S/T</title>
+    </album>
+    <album price="0.01">
+      <band>Suicidal Tendencies</band>
+      <title>Controlled By Hatred</title>
+    </album>
+  </sale>
+  <sale seller="roundflat" subtotal="" total="13.48" date="2007-01-23">
+    <album price="2.25">
+      <band>Carcass</band>
+      <title>Necroticism: Descanting the Insalubrious</title>
+    </album>
+    <album price="0.99">
+      <band>Death Angel</band>
+      <title>Fall From Grace</title>
+    </album>
+    <album price="0.99">
+      <band>No Means No</band>
+      <title>Wrong</title>
+    </album>
+    <album price="2.25">
+      <band>Sleep</band>
+      <title>Holy Mountain</title>
+    </album>
+  </sale>
+  <sale seller="tragedian1" subtotal="" total="7.50" date="2007-01-29">
+    <album>
+      <band>Massacre</band>
+      <title>From Beyond</title>
+    </album>
+  </sale>
+  <sale seller="www.heavymetalmuseum.com" subtotal="" total="26.94" date="2007-01-29">
+    <album price="2.99">
+      <band>Dark Angel</band>
+      <title>Leave Scars</title>
+    </album>
+    <album price="2.99">
+      <band>Death Angel</band>
+      <title>The Ultra Violence</title>
+    </album>
+    <album price="3.24">
+      <band>Destruction</band>
+      <title>Eternal Ban</title>
+    </album>
+    <album price="2.99">
+      <band>Exodus</band>
+      <title>Pleasures Of The Flesh</title>
+    </album>
+    <album price="2.99">
+      <band>Helloween</band>
+      <title>Walls Of Jericho</title>
+    </album>
+    <album price="2.99">
+      <band>Vader</band>
+      <title>The Ultimate Incantation</title>
+    </album>
+  </sale>
+  <sale seller="tullisd" subtotal="" total="2.98" date="2007-01-01">
+    <album price="0.99">
+      <band>Dokken</band>
+      <title>Beast From The East</title>
+    </album>
+  </sale>
+  <sale seller="roundflat" subtotal="" total="6.98" date="2007-01-01">
+    <album price="0.99">
+      <band>Godflesh</band>
+      <title>Streetcleaner</title>
+    </album>
+    <album price="0.99">
+      <band>Anal Cunt</band>
+      <title>Everyone should be killed</title>
+    </album>
+  </sale>
+  <sale seller="nema666" subtotal="" total="8.02" date="2007-01-02">
+    <album price="1.75">
+      <band>Annihilator</band>
+      <title>Alice In Hell</title>
+    </album>
+    <album price="2.02">
+      <band>Dismember</band>
+      <title>Pieces</title>
+    </album>
+    <album price="1.25">
+      <band>Sepultura</band>
+      <title>Morbid Visions</title>
+    </album>
+  </sale>
+  <sale seller="nillmatters" subtotal="" total="5.49" date="2007-02-03">
+    <album price="0.99">
+      <band>Metallica</band>
+      <title>Ride The Lightning</title>
+    </album>
+  </sale>
+  <sale seller="danbrownsfan" subtotal="10.50" total="17.50" date="2007-02-04">
+    <album>
+      <band>Black Sabbath</band>
+      <title>Black Sabbath</title>
+    </album>
+    <album>
+      <band>Black Sabbath</band>
+      <title>Black Sabbath (Import)</title>
+    </album>
+    <album>
+      <band>Black Sabbath</band>
+      <title>Paranoid</title>
+    </album>
+    <album>
+      <band>Black Sabbath</band>
+      <title>Live At Last (Import)</title>
+    </album>
+    <album>
+      <band>Black Sabbath</band>
+      <title>Sabbath, Bloody, Sabbath</title>
+    </album>
+    <album>
+      <band>Black Sabbath</band>
+      <title>Sabotage</title>
+    </album>
+    <album>
+      <band>Black Sabbath</band>
+      <title>We Sold Our Souls For Rock And Roll</title>
+    </album>
+    <album>
+      <band>Black Sabbath</band>
+      <title>Technical Ecstasy</title>
+    </album>
+    <album>
+      <band>Black Sabbath</band>
+      <title>Never Say Die</title>
+    </album>
+    <album>
+      <band>Black Sabbath</band>
+      <title>Heaven And Hell</title>
+    </album>
+    <album>
+      <band>Black Sabbath</band>
+      <title>Mob Rules</title>
+    </album>
+    <album>
+      <band>Black Sabbath</band>
+      <title>Born Again</title>
+    </album>
+    <album>
+      <band>Black Sabbath</band>
+      <title>Born Again</title>
+    </album>
+    <album>
+      <band>Black Sabbath</band>
+      <title>Headless Cross</title>
+    </album>
+    <album>
+      <band>Various Artists</band>
+      <title>Nativity In Black: A Tribute to Black Sabbath</title>
+    </album>
+  </sale>
+  <sale seller="emales02" subtotal="" total="13.99" date="2007-02-06">
+    <album price="0.99">
+      <band>Exodus</band>
+      <title>Impact Is Imminent</title>
+    </album>
+    <album price="8.00">
+      <band>Coroner</band>
+      <title>Mental Vortex</title>
+    </album>
+    <album price="5.00">
+      <band>Destruction</band>
+      <title>Infernal Overkill</title>
+    </album>
+  </sale>
+  <sale seller="lel13" subtotal="" total="15.23" date="2007-02-10">
+    <album price="3.99">
+      <band>Forbidden</band>
+      <title>Forbidden Evil</title>
+    </album>
+    <album price="4.99">
+      <band>Exhorder</band>
+      <title>Slaughter In The Vatican</title>
+    </album>
+    <album price="2.26">
+      <band>Overkill</band>
+      <title>Feel The Fire</title>
+    </album>
+    <album price="3.99">
+      <band>Mercyful Fate</band>
+      <title>Melissa</title>
+    </album>
+  </sale>
+  <sale seller="vintageplus67" subtotal="" total="12.26" date="2007-02-13">
+    <album price="8.27">
+      <band>King Diamond</band>
+      <title>No Presents For Christmas</title>
+    </album>
+    <album price="0.99">
+      <band>Sons Of The Pioneers</band>
+      <title>Best Of The Sons Of The Pioneers</title>
+    </album>
+  </sale>
+  <sale seller="roundflat" subtotal="" total="18.97" date="2007-02-20">
+    <album price="0.99">
+      <band>Motorhead</band>
+      <title>Motorhead</title>
+    </album>
+    <album price="5.99">
+      <band>45 Grave</band>
+      <title>Only The Good Die Young</title>
+    </album>
+    <album price="5.99">
+      <band>Naked City</band>
+      <title>Torture Garden</title>
+    </album>
+  </sale>
+  <sale seller="huntermass" subtotal="8.50" total="12.50" date="2007-02-24">
+    <album>
+      <band>Agony Column</band>
+      <title>God, Guns, and Guts</title>
+    </album>
+    <album>
+      <band>Agony Column</band>
+      <title>Brave Words, Bloody Knuckles</title>
+    </album>
+  </sale>
+  <sale seller="worldwidedistributing" subtotal="" total="2.99" date="2007-02-24">
+    <album price="0.99">
+      <band>Helloween</band>
+      <title>Keeper Of The Seven Keys Part I</title>
+    </album>
+  </sale>
+  <sale seller="tragedian1" subtotal="" total="27.95" date="2007-02-28">
+    <album price="5.50">
+      <band>Laaz Rockit</band>
+      <title>Annihilation Principle</title>
+    </album>
+    <album price="2.99">
+      <band>Overkill</band>
+      <title>Taking Over</title>
+    </album>
+    <album price="3.49">
+      <band>Rigor Mortis</band>
+      <title>Rigor Mortis</title>
+    </album>
+    <album price="2.99">
+      <band>Sepultura</band>
+      <title>Schizophrenia</title>
+    </album>
+    <album price="2.99">
+      <band>Victims Family</band>
+      <title>The Germ</title>
+    </album>
+    <album price="2.99">
+      <band>Various Artists</band>
+      <title>In The Eyes Of Death</title>
+    </album>
+  </sale>
+  <sale seller="destructiveindustries" subtotal="" total="9.18" date="2007-03-07">
+    <album price="7.18">
+      <band>Clandestine Blaze</band>
+      <title>Fire Burns In Our Hearts</title>
+    </album>
+  </sale>
+  <sale seller="suna73" subtotal="" total="21.32" date="2007-03-07">
+    <album price="20.00">
+      <band>Trouble</band>
+      <title>Trouble</title>
+    </album>
+  </sale>
+  <sale seller="thrashingmaniac" subtotal="4.00" total="10.05" date="2007-03-08">
+    <album>
+      <band>Obituary</band>
+      <title>Slowly We Rot</title>
+    </album>
+    <album>
+      <band>Obituary</band>
+      <title>Cause Of Death</title>
+    </album>
+    <album>
+      <band>Obituary</band>
+      <title>The End Complete</title>
+    </album>
+    <album>
+      <band>Obituary</band>
+      <title>World Demise</title>
+    </album>
+  </sale>
+  <sale seller="sanandco" subtotal="" total="7.38" date="2007-03-11">
+    <album price="0.49">
+      <band>Faith No More</band>
+      <title>The Real Thing</title>
+    </album>
+    <album price="0.99">
+      <band>The Specials</band>
+      <title>The Singles Collection</title>
+    </album>
+  </sale>
+  <sale seller="*pam77*" subtotal="" total="10.74" date="2007-03-12">
+    <album price="0.99">
+      <band>Atrophy</band>
+      <title>Violent By Nature</title>
+    </album>
+    <album price="3.25">
+      <band>Mercyful Fate</band>
+      <title>Don't Break The Oath</title>
+    </album>
+    <album price="2.00">
+      <band>Bolt Thrower</band>
+      <title>In Battle There Is No Law</title>
+    </album>
+  </sale>
+  <sale seller="rscottsmith942" subtotal="" total="9.79" date="2007-03-12">
+    <album price="6.00">
+      <band>Slayer</band>
+      <title>South Of Heaven</title>
+    </album>
+  </sale>
+  <sale seller="purplerock73" subtotal="" total="2.49" date="2007-03-14">
+    <album price="0.99">
+      <band>Overkill</band>
+      <title>The Years of Decay</title>
+    </album>
+    <album price="1.50">
+      <band>Metal Church</band>
+      <title>The Dark</title>
+    </album>
+  </sale>
+  <sale seller="applesauce001" subtotal="0.99" total="3.99" date="2007-04-14">
+    <album>
+      <band>Manowar</band>
+      <title>Fighting The World</title>
+    </album>
+    <album>
+      <band>Manowar</band>
+      <title>Kings Of Metal</title>
+    </album>
+  </sale>
+  <sale seller="roundflat" subtotal="" total="7.25" date="2007-04-17">
+    <album price="3.25">
+      <band>Hellhammer</band>
+      <title>Apocolyptic Raids</title>
+    </album>
+  </sale>
+  <sale seller="applesauce001" subtotal="" total="3.99" date="2007-04-17">
+    <album price="0.99">
+      <band>Voivod</band>
+      <title>RRROOOAAARRR</title>
+    </album>
+  </sale>
+  <sale seller="legends-af" subtotal="" total="19.87" date="2007-04-24">
+    <album price="0.99">
+      <band>Anthrax</band>
+      <title>Fistful Of Metal</title>
+    </album>
+    <album price="0.99">
+      <band>Atrophy</band>
+      <title>Socialized Hate</title>
+    </album>
+    <album price="0.99">
+      <band>Various Artists</band>
+      <title>The Decline Of Western Civilization Part II: The Metal Years</title>
+    </album>
+    <album price="0.99">
+      <band>King Diamond</band>
+      <title>The Family Ghost/Shrine</title>
+    </album>
+    <album price="0.99">
+      <band>Megadeth</band>
+      <title>Killing Is My Business</title>
+    </album>
+    <album price="0.99">
+      <band>Nirvana</band>
+      <title>Bleach</title>
+    </album>
+    <album price="0.99">
+      <band>Ozzy Osbourne</band>
+      <title>Diary Of A Madman</title>
+    </album>
+    <album price="0.99">
+      <band>Various Artists</band>
+      <title>Metal Madness Volume 2</title>
+    </album>
+  </sale>
+  <sale seller="metaltiff1" subtotal="" total="6.25" date="2007-04-29">
+    <album price="3.25">
+      <band>Pestilence</band>
+      <title>Malleus Malificarum</title>
+    </album>
+  </sale>
+  <sale seller="tragedian1" subtotal="" total="120.38" date="2007-05-02">
+    <album price="2.99">
+      <band>Anthrax</band>
+      <title>Armed And Dangerous</title>
+    </album>
+    <album price="4.91">
+      <band>Cannibal Corpse</band>
+      <title>Tomb Of The Mutilated</title>
+    </album>
+    <album price="15.50">
+      <band>Celtic Frost</band>
+      <title>To Mega Therion</title>
+    </album>
+    <album price="17.16">
+      <band>Celtic Frost</band>
+      <title>Morbid Tales/The Emperor's Return</title>
+    </album>
+    <album price="7.16">
+      <band>Celtic Frost</band>
+      <title>Into The Pandemonium</title>
+    </album>
+    <album price="10.50">
+      <band>Death</band>
+      <title>Scream Bloody Gore</title>
+    </album>
+    <album price="3.25">
+      <band>Destruction</band>
+      <title>Cracked Brain</title>
+    </album>
+    <album price="6.50">
+      <band>Dismember</band>
+      <title>Like An Everflowing Stream</title>
+    </album>
+    <album price="2.99">
+      <band>Dismember</band>
+      <title>Indecent And Obscene</title>
+    </album>
+    <album price="3.75">
+      <band>Exodus</band>
+      <title>Bonded By Blood</title>
+    </album>
+    <album price="4.95">
+      <band>Immolation</band>
+      <title>Dawn Of Possession</title>
+    </album>
+    <album price="2.99">
+      <band>Metal Church</band>
+      <title>Blessing In Disguise</title>
+    </album>
+    <album price="10.50">
+      <band>Nuclear Assault</band>
+      <title>Game Over</title>
+    </album>
+    <album price="6.00">
+      <band>Pestilence</band>
+      <title>Consuming Impulse</title>
+    </album>
+    <album price="2.99">
+      <band>Sacred Reich</band>
+      <title>Surf Nicaragua</title>
+    </album>
+    <album price="2.99">
+      <band>Victims Family</band>
+      <title>White Bread Blues</title>
+    </album>
+  </sale>
+  <sale seller="walts_vault" subtotal="" total="7.45" date="2007-05-22">
+    <album price="4.95">
+      <band>Metal Church</band>
+      <title>Metal Church</title>
+    </album>
+  </sale>
+  <sale seller="texes_rbl76" subtotal="" total="19.30" date="2007-06-08">
+    <album>
+      <band>Fates Warning</band>
+      <title>Awaken The Guardian</title>
+    </album>
+    <album>
+      <band>Fates Warning</band>
+      <title>A Pleasant Shade of Gray</title>
+    </album>
+    <album>
+      <band>Fates Warning</band>
+      <title>No Exit</title>
+    </album>
+    <album>
+      <band>Cannibal Corpse</band>
+      <title>The Bleeding</title>
+    </album>
+    <album>
+      <band>Cannibal Corpse</band>
+      <title>Bloodthirst</title>
+    </album>
+    <album>
+      <band>Mercyful Fate</band>
+      <title>The Bell Witch</title>
+    </album>
+    <album>
+      <band>Mercyful Fate</band>
+      <title>Time</title>
+    </album>
+    <album>
+      <band>King Diamond</band>
+      <title>House of God</title>
+    </album>
+    <album>
+      <band>Gwar</band>
+      <title>Carnival of Chaos</title>
+    </album>
+    <album>
+      <band>Manowar</band>
+      <title>Hell On Stage Live</title>
+    </album>
+  </sale>
+  <sale seller="midnitcandle" subtotal="" total="10.48" date="2007-06-11">
+    <album price="3.49">
+      <band>King Diamond</band>
+      <title>The Dark Sides</title>
+    </album>
+    <album price="2.99">
+      <band>Death</band>
+      <title>Individual Thought Patterns</title>
+    </album>
+  </sale>
+  <sale seller="august609" subtotal="" total="7.62" date="2007-10-14">
+    <album price="2.40">
+      <band>Sepultura</band>
+      <title>Beneath The Remains</title>
+    </album>
+    <album price="0.07">
+      <band>Napalm Death</band>
+      <title>Death By Manipulation</title>
+    </album>
+    <album price="1.40">
+      <band>Deicide</band>
+      <title>Amon: Feasting The Beast</title>
+    </album>
+  </sale>
+  <sale seller="recordrat" subtotal="" total="25.64" date="2008-10-13">
+    <album price="5.99">
+      <band>Various Artists</band>
+      <title>Concrete Music Block: Volume II (Nov 92)</title>
+    </album>
+    <album price="7.00">
+      <band>Entombed</band>
+      <title>Wolverine Blues (Promotional Copy)</title>
+    </album>
+    <album price="7.50">
+      <band>Metal Church</band>
+      <title>Blessing In Disguise (Promotional Copy)</title>
+    </album>
+  </sale>
+  <sale seller="midnitcandle" subtotal="" total="18.96" date="2007-10-26">
+    <album price="2.99">
+      <band>Various Artists</band>
+      <title>Skullcrushers Compilation</title>
+    </album>
+    <album price="3.99">
+      <band>Neurosis</band>
+      <title>Souls At Zero</title>
+    </album>
+    <album price="2.49">
+      <band>Iron Maiden</band>
+      <title>The Number of the Beast</title>
+    </album>
+    <album price="2.49">
+      <band>Judas Priest</band>
+      <title>Sad Wings of Destiny</title>
+    </album>
+  </sale>
+  <sale seller="purplerock73" subtotal="" total="4.59" date="2007-10-27">
+    <album price="1.70">
+      <band>Immolation</band>
+      <title>Here In After</title>
+    </album>
+  </sale>
+  <sale seller="roundflat" subtotal="" total="9.92" date="2008-04-26">
+    <album price="0.99">
+      <band>Foetus Inc</band>
+      <title>Sink</title>
+    </album>
+    <album price="0.99">
+      <band>Scraping Foetus Off The Wheel</band>
+      <title>Hole</title>
+    </album>
+    <album price="0.99">
+      <band>The Residents</band>
+      <title>The King And Eye</title>
+    </album>
+  </sale>
+  <sale seller="mmusic" subtotal="" total="33.45" date="2008-04-24">
+    <album price="4.99">
+      <band>Oingo Boingo</band>
+      <title>Best Of Boingo</title>
+    </album>
+    <album price="5.99">
+      <band>Oingo Boingo</band>
+      <title>Boingo Alive</title>
+    </album>
+    <album price="5.99">
+      <band>Sacrilege</band>
+      <title>Within The Prophecy</title>
+    </album>
+    <album price="5.99">
+      <band>Holy Moses</band>
+      <title>Queen Of Siam</title>
+    </album>
+    <album price="4.99">
+      <band>Nevermore</band>
+      <title>Nevermore</title>
+    </album>
+  </sale>
+</buyinghistory>

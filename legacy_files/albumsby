@@ -1,0 +1,31 @@
+# albumsby
+#
+# Usage: albumsby band
+#
+# Displays all the albums by band specified on command line
+
+if [ $# -eq 0 ]; then
+	echo "Searches bh.xml and displays all albums by band"
+	echo "specified on command line."
+	echo "Spelling of band must me same as it is in bh.xml"
+	echo 
+	echo "Usage: albumsby band"
+	exit
+fi	
+
+if ! grep -qi "<band>$*<" bh.xml; then 
+	echo $* not found
+	exit 1
+fi	
+
+echo $*:
+name=`lcase $*`
+
+S1="/.*/y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/
+/<band>$name/{"
+S2='n
+s!^ *<title>\([^<]*\).*!\t\1!
+p
+}'
+
+sed -n "${S1}${S2}" bh.xml

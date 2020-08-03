@@ -96,9 +96,9 @@ namespace BuyingHistory
 
                     } while (GetYesNo("\nAdd another item to this sale? "));
 
-                    Console.WriteLine();
-                    PrintSale(sale);
-                    Console.WriteLine();
+                    //Console.WriteLine();
+                    //PrintSale(sale);
+                    //Console.WriteLine();
 
                     // No more items so add sale
                     db.Sales.Add(sale);
