@@ -285,6 +285,8 @@ if ! grep -qi "<band>$*<" bh.xml; then
 	exit 1
 fi	
 
+# Command line args are converted to lowercase as is the file data
+# thus making the search case-insensitive
 band=`echo $* | sed -e "/.*/y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/"`
 
 script="/.*/y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/
