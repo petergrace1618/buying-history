@@ -381,15 +381,19 @@ A few years after this I picked up a book called *XSLT: Working with XML and HTM
 
 [Peter Grace's Tape Buying History](https://petergrace.site/buying-history/)
 
+I was fairly new to CSS back then so the styling could use some work. I haven't touched it in years. Ultimately, however, my goal was to create a web application backed by a database to track my buying history. 
 
-Ultimately, however, my goal was to create a web application backed by a database to track my buying history. 
-
-## Stage Three
+## Phase 3
 
 In July of 2020 as a student at the Tech Academy, I had the opportunity to create a console application in C# using Entity Framework Code First. It should come as no surprise that I took the opportunity to bring my years-long goal closer to fruition.
 
 ![BuyingHistory console app screenshot](buyinghistory-console-scrshot-1.png)
 
-I realize that it's purely a vanity piece of software but it means a lot to me.
+So what's next for Phase 4? I discovered/realized a few things while writing this README. I 
+- I want to change the `<store>`, `<seller>`, `<total>`, `<date>`, and `<price>` elements back to being attributes. It looks more sleek, and it's also more colorful with syntax highlighting.
+- The console app needs error checking to test for empty strings on input.
 
+- Create a web application using MVC.
+
+I realize that it's purely a vanity piece of software but it's a labor of love.
 
