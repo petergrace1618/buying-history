@@ -15,8 +15,9 @@ mmusic:Oingo Boingo{"Best Of Boingo":4.99,"Boingo Alive":5.99},Sacrilege{"Within
 ...
 ```
 
-Not exactly reader-friendly.  
-Then in 2008 while I was going to PCC for Computer Science I decided to convert my precious gobbledygook into XML. I did it in Java because I was taking a Java course at the time. I even wrote it in pseudocode first in proper academic fashion. Unfortunately I have neither the Java nor the pseudocode anymore, but my program worked beautifully. 
+Not exactly reader-friendly. 
+
+So in 2008 while I was going to PCC for Computer Science I decided to convert my precious gobbledygook into XML. I did it in Java because I was taking a Java course at the time. I even wrote it in pseudocode first in proper academic fashion. Unfortunately I have neither the Java nor the pseudocode anymore, but my program worked beautifully. 
 
 ```xml
 <buyinghistory>
@@ -43,28 +44,6 @@ Then in 2008 while I was going to PCC for Computer Science I decided to convert 
       <band>Xentrix</band>
       <title>Shattered Existence</title>
     </album>
-  </sale>
-  <sale seller="mmusic" subtotal="" total="33.45" date="2008-04-24">
-    <album price="4.99">
-      <band>Oingo Boingo</band>
-      <title>Best Of Boingo</title>
-    </album>
-    <album price="5.99">
-      <band>Oingo Boingo</band>
-      <title>Boingo Alive</title>
-     </album>
-     <album price="5.99"
-       <band>Sacrilege</band>
-       <title>Within The Prophecy</title>
-     </album>
-     <album price="5.99">
-       <band>Holy Moses</band>
-       <title>Queen Of Siam</title>
-     </album>
-     <album price="4.99">
-       <band>Nevermore</band>
-       <title>Nevermore</title>
-     </album>
   </sale>
   ...
 </buyinghistory>
@@ -300,7 +279,7 @@ echo $*:
 sed -n "$script" bh.xml
 ```
 
-Which produces such glorious output as this: 
+Which produced such glorious output as this: 
 
 ```
 $albumsby Black Sabbath
@@ -394,52 +373,7 @@ And the all new bh.xml was born.
       </album>
     </item>
   </sale>
-  <sale>
-    <store>eBay</store>
-    <seller>mmusic</seller>
-    <date>2008-04-24</date>
-    <total>33.45</total>
-    <item>
-      <price>4.99</price>
-      <album>
-        <band>Oingo Boingo</band>
-        <title>Best Of Boingo</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-    <item>
-      <price>5.99</price>
-      <album>
-        <band>Oingo Boingo</band>
-        <title>Boingo Alive</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-    <item>
-      <price>5.99</price>
-      <album>
-        <band>Sacrilege</band>
-        <title>Within The Prophecy</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-    <item>
-      <price>5.99</price>
-      <album>
-        <band>Holy Moses</band>
-        <title>Queen Of Siam</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-    <item>
-      <price>4.99</price>
-      <album>
-        <band>Nevermore</band>
-        <title>Nevermore</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-  </sale>
+  ...
 </bh>
 ```
 
@@ -447,15 +381,23 @@ A few years after this I picked up a book called *XSLT: Working with XML and HTM
 
 [Peter Grace's Tape Buying History](https://petergrace.site/buying-history/)
 
+I was fairly new to CSS back then so the styling could use some work. I haven't touched it in years. Ultimately, however, my goal was to create a web application backed by a database to track my buying history. 
 
-Ultimately, however, my goal was to create a web application backed by a database to track my buying history. 
-
-## Stage Three
+## Phase 3
 
 In July of 2020 as a student at the Tech Academy, I had the opportunity to create a console application in C# using Entity Framework Code First. It should come as no surprise that I took the opportunity to bring my years-long goal closer to fruition.
 
 ![BuyingHistory console app screenshot](buyinghistory-console-scrshot-1.png)
 
-I realize that it's purely a vanity piece of software but it means a lot to me.
+![BuyingHistory console app screenshot](buyinghistory-console-scrshot-2.png)
 
+![BuyingHistory console app screenshot](buyinghistory-console-scrshot-3.png)
+
+So what's next for Phase 4? I discovered/realized a few things while writing this README. I 
+- I want to change the `<store>`, `<seller>`, `<total>`, `<date>`, and `<price>` elements back to being attributes. It looks more sleek, and it's also more colorful with syntax highlighting.
+- The console app needs error checking to test for empty strings on input.
+
+- Create a web application using MVC.
+
+I realize that it's purely a vanity piece of software but it's a labor of love.
 
