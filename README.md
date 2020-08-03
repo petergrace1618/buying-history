@@ -298,7 +298,7 @@ echo $*:
 sed -n "$script" bh.xml
 ```
 
-Which produces such output as this: 
+Which produces such glorious output as this: 
 
 ```
 $albumsby Black Sabbath
