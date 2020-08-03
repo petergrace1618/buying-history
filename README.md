@@ -443,15 +443,18 @@ And the all new bh.xml was born.
 </bh>
 ```
 
-Around the time of the Mayan apocalypse, I picked up a book called *XSLT: Working with XML and HTML* by Khun Yee Fung which I used to transform my XML into HTML. I also got an account with a web hosting service and with a FileZilla FTP client and a little research into PHP, I brought my fetish to the light of day.
+A few years after this I picked up a book called *XSLT: Working with XML and HTML* by Khun Yee Fung which I used to transform my XML into HTML. After getting a web host account, installing FileZilla FTP client, and using a little PHP, I was able to bring my fetish to the light of day.
 
 [Peter Grace's Tape Buying History](https://petergrace.site/buying-history/)
 
-Ultimately however, my goal was to store it in a database and create a web form to update it. I started making one using Javascript but my knowledge of Javascript was limited to an Introduction to Computer Science class I took in 2005; I wasn't even aware of jQuery at the time. This was 2013. 
 
-For years I kept buying tapes and updating my XML file manually (utilizing a bash script, of course), until July of 2020 when I had the opportunity to create a console application in C# using Entity Framework Code First. It should come as no surprise that my first thought was to bring my years-long goal to fruition. And so I did.
+Ultimately, however, my goal was to create a web application backed by a database to track my buying history. 
 
 ## Stage Three
+
+In July of 2020 as a student at the Tech Academy, I had the opportunity to create a console application in C# using Entity Framework Code First. It should come as no surprise that I took the opportunity to bring my years-long goal closer to fruition.
+
+![BuyingHistory console app screenshot](buyinghistory-console-scrshot-1.png)
 
 I realize that it's purely a vanity piece of software but it means a lot to me.
 
