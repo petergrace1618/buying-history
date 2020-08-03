@@ -1,5 +1,5 @@
 # buying-history  
-As a teenager I had a meager collection of Heavy Metal cassette tapes, but I sold them when I was 19; I guess I felt I had outgrown them. Then in 2006 when I discovered eBay and Amazon at 30, I started collecting them again. I guess I wanted to rekindle my youth. And because I'm fastidious, I kept track of my purchases in a text file with a format of my own making.
+As a teenager I had a small collection of Heavy Metal cassette tapes, but I sold them when I was 19; I guess I felt I had outgrown them. Then in 2006 when I discovered eBay and Amazon at 30, I started collecting tapes again. I guess I wanted to rekindle my youth. And because I'm fastidious, I kept track of my purchases in a text file with a format of my own making.
 
 ## Phase 1
 ```
@@ -199,64 +199,103 @@ bh.old : Buyinghistory.txt
 	cp Buyinghistory.txt bh.old
 ```
 
-I wrote a few scripts to test my conversion.
+I wrote some test scripts. 
 
-	```sed
+```sed
 #n
-/<subtotal>/{
-s! *<subtotal>\([^<]*\).*!Subtotal \1!
-p
-}
+# newbuyers.sed
+# Extracts the buyer name from bh.xml which was produced by convertbh.sed, and
+# writes it to buyers.new.  A similar script (oldbuyers.sed) is also run on the
+# bh.old which outputs a list of buyers to buyers.old. The two output files are
+# then compared with diff in order to test the results of convertbh.sed.
 
-/<total>/{
-s! *<total>\([^<]*\).*!Total \1!
-p
-}
-
-/<price>/{
-s! *<price>\([^<]*\).*!Price \1!
-p
-}
-
-/<\/sale>/{
-i\
-
+/buyer/{
+s/ *<buyer>\([^<]*\).*/\1/
+w buyers.new
 }
 ```
 
+```sed
+#n
+# oldbuyers.sed
+# Extracts the buyer name from bh.old and writes it to buyer.old.  A similar
+# script (newbuyers.sed) is also run on the bh.xml which outputs a list of
+# buyers to buyers.new. The two output files are then compared with diff
+# in order to test the results of convertbh.sed.
 
-
-```
-Subtotal 2.37
-Total 7.27
-Price 
-Price 
-
-Subtotal 2.75
-Total 8.80
-Price 
-
-Subtotal 1.52
-Total 5.52
-Price 
-
-Subtotal 4.99
-Total 6.74
-Price 
-
-Subtotal 0.99
-Total 3.49
-Price 
-
-Subtotal 
-Total 16.50
-Price 3.00
-Price 3.00
-Price 3.00
-Price 3.00
+/^#/d
+s/^\([^:]*\).*/\1/
+w buyers.old
 ```
 
-(This was all done in Cygwin using the command line and vi text editor, by the way.)  
+```sed
+#n
+# newtitles.sed
+# Like newbuyers.sed but extracts titles instead of buyers.
+
+/title/{
+s/ *<title>\([^<]*\).*/\1/
+w titles.new
+}
+```
+
+And some ancillary scripts like this one:
+
+```
+# albumsby
+#
+# Usage: albumsby band
+#
+# Displays all the albums by band specified on command line
+
+if [ $# -eq 0 ]; then
+	echo Usage: albumsby BAND
+	echo 
+	echo Searches bh.xml and displays all albums by BAND specified on command line.
+	exit
+fi	
+
+if ! grep -qi "<band>$*<" bh.xml; then 
+	echo $* not found
+	exit 1
+fi	
+
+band=`echo $* | sed -e "/.*/y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/"`
+
+script="/.*/y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/
+/<band>$band/{"
+script=$script'n
+s!^ *<title>\([^<]*\).*!\t\1!
+p
+}'
+
+echo $*:
+sed -n "$script" bh.xml
+```
+
+Which produces such output as this: 
+
+```
+$albumsby Black Sabbath
+Black Sabbath:
+	Black Sabbath
+	Black Sabbath (Import)
+	Paranoid
+	Live At Last (Import)
+	Sabbath, Bloody, Sabbath
+	Sabotage
+	We Sold Our Souls For Rock And Roll
+	Technical Ecstasy
+	Never Say Die
+	Heaven And Hell
+	Mob Rules
+	Born Again
+	Born Again
+	Headless Cross
+
+```
+
+This was all done on the command line using Cygwin (a Linux emulator for Windows) and the vi text editor, by the way.
 
 In the back of my mind, though, I had a feeling that my XML schema may not be as robust as it could be, but I didn't give it much thought as I was too consumed with the vagaries and vicissitudes of everyday life. Then one day it happened and I was confronted with a new stark reality.   
 
