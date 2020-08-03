@@ -1,5 +1,6 @@
 # buying-history  
 As a teenager I had a meager collection of Heavy Metal cassette tapes, but I sold them when I was 19; I guess I felt I had outgrown them. Then in 2006 when I discovered eBay and Amazon at 30, I started collecting them again. I guess I wanted to rekindle my youth. And because I'm fastidious, I kept track of my purchases in a text file with a format of my own making.
+
 ## Stage One
 ```
 #SELLER:BAND{"ALBUM"[:PRICE][,"ALBUM"[:PRICE]]}[,BAND{"ALBUM"[:PRICE][,"ALBUM"[:PRICE]]}]:[SUBTOTAL]:TOTAL:DATE
@@ -14,7 +15,7 @@ mmusic:Oingo Boingo{"Best Of Boingo":4.99,"Boingo Alive":5.99},Sacrilege{"Within
 ...
 ```
 Not exactly reader-friendly.  
-Then in 2008 while I was going to PCC for Computer Science I decided to convert my precious gobbledygook into XML. I did it in Java because I was taking a Java course at the time. I even wrote it out in pseudocode first in proper academic fashion. Unfortunately I have neither the Java nor the pseudo code anymore, but it worked beautifully. 
+Then in 2008 while I was going to PCC for Computer Science I decided to convert my precious gobbledygook into XML. I did it in Java because I was taking a Java course at the time. I even wrote it in pseudocode first in proper academic fashion. Unfortunately I have neither the Java nor the pseudo code anymore, but it worked beautifully. 
 ```xml
 <buyinghistory>
   <sale seller="_gnasher670" subtotal="2.37" total="7.27" date="2007-01-03">
@@ -196,12 +197,12 @@ bh.old : Buyinghistory.txt
 	cp Buyinghistory.txt bh.old
 ```
 
-This was all done in Cygwin using the command line and vi text editor, by the way.
-At a certain point though I realized a couple things: 
-- I wasn't keeping track of the "store" (eBay or Aamazon, etc.)
-- Some tapes were sold as a "lot" meaning multiple tapes sold as one item 
-- The subtotal attribute was redundant 
-- And once in a while I bought a CD
+(This was all done in Cygwin using the command line and vi text editor, by the way.)  
+
+In the back of my mind, though, I had a feeling that my XML schema may not be as robust as it could be, but I didn't give it much thought. Then one day it happened and I was confronted with the stark truth.   
+On January 9 2010, I broke my schema.
+
+You see, some tapes are sold as a "lot" meaning multiple tapes sold as one item. I was using a `price` attribute on the `<album>` element for tapes sold individually and a `subtotal` attribute on the `<sale>` element for tapes sold as a lot. This had been adequate until one crisp January afternoon when I decided to buy a single tape and a lot from the same seller at the same time. And that was it. My Weltanschauung went kaput.
 
 In other words, my schema was inadequate.
 
