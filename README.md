@@ -441,7 +441,7 @@ And the all new bh.xml was born.
 </bh>
 ```
 
-Around the time of the Mayan apocalypse, I picked up a book called *XSLT: Working with XML and HTML* by Khun Yee Fung which I used it to transform my XML into HTML. I also got an account with a web hosting service and with a FileZilla FTP client and a little research into PHP, I brought my fetish to the light of day.
+Around the time of the Mayan apocalypse, I picked up a book called *XSLT: Working with XML and HTML* by Khun Yee Fung which I used to transform my XML into HTML. I also got an account with a web hosting service and with a FileZilla FTP client and a little research into PHP, I brought my fetish to the light of day.
 
 [Peter Grace's Tape Buying History](https://petergrace.site/buying-history/)
 
