@@ -322,7 +322,7 @@ Black Sabbath:
 
 This was all done on the command line using Cygwin (a Linux emulator for Windows) and the vi text editor, by the way.
 
-In the back of my mind, though, I had a feeling that my XML schema may not be as robust as it could be, but I didn't give it much thought as I was too consumed with the vagaries and vicissitudes of everyday life. Then one day it happened and I was confronted with a new stark reality.   
+In the back of my mind, though, I had a feeling that my XML schema may not be as robust as it could be, but I didn't give it much thought as I was too consumed with the vagaries and vicissitudes of everyday life. Then one day something unexpected happened and I was confronted with a new stark reality.   
 
 On January 9 2010, I broke my schema.
 
