@@ -106,7 +106,7 @@ namespace BuyingHistory
                 } while (GetYesNo("\nAdd another sale? "));
 
                 // No more sales, so save
-                Console.WriteLine($"Saving {totalSales} sale(s), {totalItems} item(s), and {totalAlbums} album(s)...");
+                Console.WriteLine($"\nSaving {totalSales} sale(s), {totalItems} item(s), and {totalAlbums} album(s)...");
                 db.SaveChanges();
             }
         }
