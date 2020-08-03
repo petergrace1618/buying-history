@@ -199,16 +199,120 @@ bh.old : Buyinghistory.txt
 
 (This was all done in Cygwin using the command line and vi text editor, by the way.)  
 
-In the back of my mind, though, I had a feeling that my XML schema may not be as robust as it could be, but I didn't give it much thought. Then one day it happened and I was confronted with the stark truth.   
+In the back of my mind though I had a feeling that my XML schema may not be as robust as it could be, but I didn't give it much thought as I was too consumed with the vagaries and vicissitudes of everyday life. Then one day it happened and I was confronted with a new stark, brutal reality.   
 On January 9 2010, I broke my schema.
 
-You see, some tapes are sold as a "lot" meaning multiple tapes sold as one item. I was using a `price` attribute on the `<album>` element for tapes sold individually and a `subtotal` attribute on the `<sale>` element for tapes sold as a lot. This had been adequate until one crisp January afternoon when I decided to buy a single tape and a lot from the same seller at the same time. And that was it. My Weltanschauung went kaput.
+You see, some tapes are sold as a *lot* meaning multiple tapes sold as one item. To account for this, I used a `price` attribute on the `<album>` element for tapes sold individually and a `subtotal` attribute on the `<sale>` element for tapes sold as a lot. This had been adequate until one crisp January afternoon when I decided to buy a single tape *and* a lot from the same seller at the same time. And that was it.  
+My Weltanschauung went kaput.
 
-In other words, my schema was inadequate.
+It was time to refactor my XML.
 
 ## Stage Two
 
-Around the time of the Mayan apocalypse, I picked up a book about XSLT at Goodwill and with a little research into PHP I was able to convert my XML into HTML. And my fetish came alive for the whole world to see. **Behold!**
+It was really a simple solution, melodrama notwithstanding. I wrapped each individual album and lot in an `<item>` tag with its own `price` attribute thus ridding my life of the dreaded `subtotal`. Since I was restructuring already, I also decided to forgo using attributes altogether and store everything in its own element to make it easier to process in XSLT. I also abbreviated the name of the root node, influenced by the terseness of Linux commands.
+
+```xml
+<bh>
+  <sale>
+    <store>eBay</store>
+    <seller>_gnasher670</seller>
+    <date>2007-01-03</date>
+    <total>7.27</total>
+    <item>
+      <price>2.37</price>
+      <album>
+        <band>Testament</band>
+        <title>Practice What You Preach</title>
+        <format>CASSETTE</format>
+      </album>
+      <album>
+        <band>Testament</band>
+        <title>The New Order</title>
+        <format>CASSETTE</format>
+      </album>
+    </item>
+  </sale>
+  <sale>
+    <store>eBay</store>
+    <seller>tragedian1</seller>
+    <date>2007-01-19</date>
+    <total>21.65</total>
+    <item>
+      <price>7.50</price>
+      <album>
+        <band>Slayer</band>
+        <title>Reign In Blood</title>
+        <format>CASSETTE</format>
+      </album>
+    </item>
+    <item>
+      <price>2.99</price>
+      <album>
+        <band>Trouble</band>
+        <title>The Skull</title>
+        <format>CASSETTE</format>
+      </album>
+    </item>
+    <item>
+      <price>7.16</price>
+      <album>
+        <band>Xentrix</band>
+        <title>Shattered Existence</title>
+        <format>CASSETTE</format>
+      </album>
+    </item>
+  </sale>
+  <sale>
+    <store>eBay</store>
+    <seller>mmusic</seller>
+    <date>2008-04-24</date>
+    <total>33.45</total>
+    <item>
+      <price>4.99</price>
+      <album>
+        <band>Oingo Boingo</band>
+        <title>Best Of Boingo</title>
+        <format>CASSETTE</format>
+      </album>
+    </item>
+    <item>
+      <price>5.99</price>
+      <album>
+        <band>Oingo Boingo</band>
+        <title>Boingo Alive</title>
+        <format>CASSETTE</format>
+      </album>
+    </item>
+    <item>
+      <price>5.99</price>
+      <album>
+        <band>Sacrilege</band>
+        <title>Within The Prophecy</title>
+        <format>CASSETTE</format>
+      </album>
+    </item>
+    <item>
+      <price>5.99</price>
+      <album>
+        <band>Holy Moses</band>
+        <title>Queen Of Siam</title>
+        <format>CASSETTE</format>
+      </album>
+    </item>
+    <item>
+      <price>4.99</price>
+      <album>
+        <band>Nevermore</band>
+        <title>Nevermore</title>
+        <format>CASSETTE</format>
+      </album>
+    </item>
+  </sale>
+</bh>
+```
+
+Around the time of the Mayan apocalypse, I picked up a book about XSLT at Goodwill and with a little research into PHP I was able to convert my XML into HTML. And my fetish came alive for the whole world to see.   
+**Behold!**
 
 [Peter Grace's Tape Buying History](https://petergrace.site/buying-history/)
 
@@ -218,7 +322,7 @@ I still had to update my XML file manually. The upkeep of entering new sales bec
 
 I tried to use Javascript, but my knowledge of Javascript was limited to an Introduction to Computer Science class I took in 2005. I wasn't even aware of jQuery at the time. This was 2013. For years I kept buying tapes and updating bh.xml manually (utilizing my bash script, of course), until July of 2020 when I was given the opportunity to create a console application in C# using Entity Framework Code First. It should come as no surprise that my first thought was to bring my years-long goal to fruition. And so I did.  
 
-## Stage Three
+## Stage Four
 
 I realize that it's purely a vanity piece of software but it means a lot to me.
 
