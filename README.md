@@ -388,9 +388,13 @@ I was fairly new to CSS back then so the styling could use some work. I haven't 
 In July of 2020 as a student at the Tech Academy, I had the opportunity to create a console application in C# using Entity Framework Code First. It should come as no surprise that I took the opportunity to bring my years-long goal closer to fruition.
 
 ![BuyingHistory console app screenshot](buyinghistory-console-scrshot-2.png)
+
 `bh print`
+
 ![BuyingHistory console app screenshot](buyinghistory-console-scrshot-3.png)
+
 `bh xml`
+
 ![BuyingHistory console app screenshot](buyinghistory-console-scrshot-1.png)
 
 So what's next for Phase 4? I discovered/realized a few things while writing this README. I 
