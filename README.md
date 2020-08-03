@@ -338,7 +338,7 @@ It was time to refactor my XML.
 It was really a simple solution, melodrama notwithstanding.   
 - I wrapped each individual album and lot in an `<item>` tag. 
 - I dispensed with using attributes altogether and moved everything into its own element to make it easier to process with XSLT.
-- I moved `price` from an attribute of `<album>` to a child element of `<item>` thus ridding myself of the dreaded subtotal once and for all. 
+- I moved `price` from an attribute of `<album>` to a child element of `<item>` thus ridding myself of the redundant subtotal attribute. 
 - And finally, influenced by the terseness of Linux commands and willfully flaunting XML's inherent verbosity, I abbreviated the name of the root node. (Admittedly, a manifestation of my antinomian tendencies.)
 
 And the all new bh.xml was born.
