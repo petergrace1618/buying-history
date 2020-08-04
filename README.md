@@ -2,6 +2,7 @@
 As a teenager I had a small collection of Heavy Metal cassette tapes, but I sold them when I was 19; I guess I felt I had outgrown them. Then in 2006 when I discovered eBay and Amazon at 30, I started collecting tapes again. I guess I wanted to rekindle my youth. And because I'm fastidious, I kept track of my purchases in a text file with a format of my own devising.
 
 ## Phase 1
+[Buyinghistory.txt](legacy_files/Buyinghistory.txt)
 ```
 #SELLER:BAND{"ALBUM"[:PRICE][,"ALBUM"[:PRICE]]}[,BAND{"ALBUM"[:PRICE][,"ALBUM"[:PRICE]]}]:[SUBTOTAL]:TOTAL:DATE
 _gnasher670:Testament{"Practice What You Preach","The New Order"}:2.37:7.27:1/3/07
@@ -50,11 +51,11 @@ I knew I needed a standard file format, so in 2008 while I was going to PCC for 
 ```
 <dl>
 	<dt>Problem</dt>
-	<dd>:I had to continue tracking my purchases.</dd>
-	<dd>:I wanted to avoid typing raw XML by hand.</dd>
-	<dd>:I discovered sed which I soon became enamored with.</dd>
+		<dd>I had to continue tracking my purchases.</dd>
+		<dd>I wanted to avoid typing raw XML by hand.</dd>
+		<dd>I discovered sed which I soon became enamored with.</dd>
 	<dt>Solution</dt>
-	<dd>:I wrote a sed script to convert my original file to XML. </dd>
+		<dd>I wrote a sed script to convert my original file to XML. </dd>
 </dl>
 
 ```sed
