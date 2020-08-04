@@ -49,12 +49,12 @@ I knew I needed a standard file format, so in 2008 while I was going to PCC for 
 </buyinghistory>
 ```
 <dl>
-	<dt>Problem</dt>
-		<dd>I had to continue tracking my purchases.</dd>
-		<dd>I wanted to avoid typing raw XML by hand.</dd>
-		<dd>I discovered sed which I soon became enamored with.</dd>
-	<dt>Solution</dt>
-		<dd>I wrote a sed script to convert my original file to XML. </dd>
+  <dt>Problem</dt>
+  <dd>I had to continue tracking my purchases.</dd>
+  <dd>I wanted to avoid typing raw XML by hand.</dd>
+  <dd>I discovered sed which I soon became enamored with.</dd>
+  <dt>Solution</dt>
+  <dd>I wrote a sed script to convert my original file to XML. </dd>
 </dl>
 
 ```sed
@@ -76,14 +76,14 @@ I knew I needed a standard file format, so in 2008 while I was going to PCC for 
 <?xml version="1.0" encoding="US-ASCII" standalone="yes" ?>\
 <!DOCTYPE buyinghistory [\
 <!ELEMENT buyinghistory (sale*)>\
-    <!ELEMENT sale (album*)>\
+  <!ELEMENT sale (album*)>\
     <!ELEMENT album (band, title)>\
     <!ELEMENT band (#PCDATA)>\
     <!ELEMENT title (#PCDATA)>\
     <!ATTLIST sale seller CDATA #REQUIRED\
-              subtotal CDATA #REQUIRED\
-              total CDATA #REQUIRED\
-              date CDATA #REQUIRED\
+                   subtotal CDATA #REQUIRED\
+                   total CDATA #REQUIRED\
+                   date CDATA #REQUIRED\
     >\
     <!ATTLIST album price CDATA #IMPLIED>\
 ]>\
