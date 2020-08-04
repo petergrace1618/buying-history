@@ -233,7 +233,7 @@ In the back of my mind, though, I had a feeling that my XML schema may not be as
 
 On January 9 2010, I broke my schema.
 
-You see, some tapes are sold as a *lot* meaning multiple tapes sold as one item. To account for this, I used a `price` attribute on the `<album>` element for tapes sold individually and a `subtotal` attribute on the `<sale>` element for tapes sold as a lot. This had been adequate until one crisp January afternoon when I decided to buy a single tape *__and__* a lot from the same seller at the same time. And that was that.  
+You see, some tapes are sold as a *lot* meaning multiple tapes sold as one item. To account for this, I used a `price` attribute on the `<album>` element for tapes sold individually and a `subtotal` attribute on the `<sale>` element for tapes sold as a lot. This had been adequate until one crisp January afternoon when I decided to buy a single tape ***and*** a lot from the same seller at the same time. And that was that.  
 My Weltanschauung went kaput.
 
 It was time to refactor my XML.
@@ -303,7 +303,7 @@ And the all new bh.xml was born.
 </bh>
 ```
 
-Thanks to a book I found at a second hand store[^1],  I used to transform my XML into HTML. After getting a web host account, installing FileZilla FTP client, and using a little PHP, I was able to bring my fetish to the light of day.
+Thanks to a [book][1] I found at a second hand store,  I used to transform my XML into HTML. After getting a web host account, installing FileZilla FTP client, and using a little PHP, I was able to bring my fetish to the light of day.
 
 [Peter Grace's Tape Buying History](https://petergrace.site/buying-history/)
 
@@ -329,4 +329,4 @@ So what's next for Phase 4? I discovered/realized a few things while writing thi
 
 I realize that it's purely a vanity piece of software but it's a labor of love.
 
-[^1]: *XSLT: Working with XML and HTML* by Khun Yee Fung. Addison-Wesley. 2001. 
+[1]: <https://www.amazon.com/XSLT-Working-Khun-Yee-Fung/dp/0201711036/> "XSLT"
