@@ -329,4 +329,4 @@ So what's next for Phase 4? I discovered/realized a few things while writing thi
 
 I realize that it's purely a vanity piece of software but it's a labor of love.
 
-[1]: <https://www.amazon.com/XSLT-Working-Khun-Yee-Fung/dp/0201711036/> "XSLT"
+[1]: <https://www.amazon.com/XSLT-Working-Khun-Yee-Fung/dp/0201711036/> "XSLT: Working with XML and HTML by Khun Yee Fung" 
