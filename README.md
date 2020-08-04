@@ -17,7 +17,7 @@ mmusic:Oingo Boingo{"Best Of Boingo":4.99,"Boingo Alive":5.99},Sacrilege{"Within
 
 Not exactly reader-friendly. 
 
-So in 2008 while I was going to PCC for Computer Science I decided to convert my precious gobbledygook into XML. I did it in Java because I was taking a Java course at the time. I even wrote it in pseudocode first in proper academic fashion. Unfortunately I have neither the Java nor the pseudocode anymore, but my program worked beautifully. 
+I knew I needed a standard file format, so in 2008 while I was going to PCC for Computer Science I wrote a one-off Java program to convert my precious gobbledygook into XML. I even wrote it in pseudocode first in proper academic fashion. Unfortunately I have neither the Java nor the pseudocode anymore, but my program worked beautifully. 
 
 ```xml
 <buyinghistory>
@@ -49,7 +49,12 @@ So in 2008 while I was going to PCC for Computer Science I decided to convert my
 </buyinghistory>
 ```
 
-Because XML is so verbose I continued tracking my purchases in my own text format and used a sed script to convert it to XML.
+Problem
+:I had to continue tracking my purchases.
+:I wanted to avoid typing raw XML by hand.
+:I discovered sed which I soon became enamored with.
+Solution
+:I wrote a sed script to convert my original file to XML. 
 
 ```sed
 # convertbh.sed
@@ -69,15 +74,15 @@ Because XML is so verbose I continued tracking my purchases in my own text forma
 1i\
 <?xml version="1.0" encoding="US-ASCII" standalone="yes" ?>\
 <!DOCTYPE buyinghistory [\
-	<!ELEMENT buyinghistory (sale*)>\
+<!ELEMENT buyinghistory (sale*)>\
 	<!ELEMENT sale (album*)>\
 	<!ELEMENT album (band, title)>\
 	<!ELEMENT band (#PCDATA)>\
 	<!ELEMENT title (#PCDATA)>\
 	<!ATTLIST sale seller CDATA #REQUIRED\
-				   subtotal CDATA #REQUIRED\
-				   total CDATA #REQUIRED\
-				   date CDATA #REQUIRED\
+			  subtotal CDATA #REQUIRED\
+			  total CDATA #REQUIRED\
+			  date CDATA #REQUIRED\
 	>\
 	<!ATTLIST album price CDATA #IMPLIED>\
 ]>\
@@ -227,9 +232,9 @@ Black Sabbath:
 
 ```
 
-This was all done on the command line using Cygwin (a Linux emulator for Windows) and the vi text editor, by the way.
+This was all done on the command line using Cygwin (a Linux emulator for Windows) and the vi text editor. And all these files can be found in the `legacy_files` directory.
 
-In the back of my mind, though, I had a feeling that my XML schema may not be as robust as it could be, but I didn't give it much thought as I was too consumed with the vagaries and vicissitudes of everyday life. Then one day something unexpected happened and I was confronted with a new stark reality.   
+In the back of my mind, though, I had a feeling that my XML schema may not be as robust as it could be, but I didn't give it much thought as I was too consumed with the vagaries and vicissitudes of everyday life. Then one day something unexpected happened and I was confronted with a stark new reality.
 
 On January 9 2010, I broke my schema.
 
@@ -302,12 +307,11 @@ And the all new bh.xml was born.
   ...
 </bh>
 ```
+With my Weltanschauung now restored, I moved on to my next goal which was to bring my fetish to the light of day. 
 
-Thanks to a [book][1] I found at a second hand store,  I used to transform my XML into HTML. After getting a web host account, installing FileZilla FTP client, and using a little PHP, I was able to bring my fetish to the light of day.
+I had the good fortune of happening upon a [book][1] about XSLT at a second hand store which opened up a myriad of possiblities. I got a web hosting account, FileZilla FTP client
 
 [Peter Grace's Tape Buying History](https://petergrace.site/buying-history/)
-
-I was fairly new to CSS back then so the styling could use some work. I haven't touched it in years. Ultimately, however, my goal was to create a web application backed by a database to track my buying history. 
 
 ## Phase 3
 
@@ -321,7 +325,9 @@ Output of `$bh xml`, `$bh print`, and `$bh add`.
 
 ![BuyingHistory console app screenshot](buyinghistory-console-scrshot-1.png)
 
-So what's next for Phase 4? I discovered/realized a few things while writing this README. I 
+## Phase 4? 
+
+I discovered/realized a few things while writing this README. I 
 - I want to change the `<store>`, `<seller>`, `<total>`, `<date>`, and `<price>` elements back to being attributes. It looks more sleek, and it's also more colorful with syntax highlighting.
 - The console app needs error checking to test for empty strings on input.
 
