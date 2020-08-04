@@ -48,13 +48,14 @@ I knew I needed a standard file format, so in 2008 while I was going to PCC for 
   ...
 </buyinghistory>
 ```
-
-Problem
-:I had to continue tracking my purchases.
-:I wanted to avoid typing raw XML by hand.
-:I discovered sed which I soon became enamored with.
-Solution
-:I wrote a sed script to convert my original file to XML. 
+<dl>
+	<dt>Problem</dt>
+	<dd>:I had to continue tracking my purchases.</dd>
+	<dd>:I wanted to avoid typing raw XML by hand.</dd>
+	<dd>:I discovered sed which I soon became enamored with.</dd>
+	<dt>Solution</dt>
+	<dd>:I wrote a sed script to convert my original file to XML. </dd>
+</dl>
 
 ```sed
 # convertbh.sed
