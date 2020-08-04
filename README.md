@@ -76,16 +76,16 @@ I knew I needed a standard file format, so in 2008 while I was going to PCC for 
 <?xml version="1.0" encoding="US-ASCII" standalone="yes" ?>\
 <!DOCTYPE buyinghistory [\
 <!ELEMENT buyinghistory (sale*)>\
-	<!ELEMENT sale (album*)>\
-	<!ELEMENT album (band, title)>\
-	<!ELEMENT band (#PCDATA)>\
-	<!ELEMENT title (#PCDATA)>\
-	<!ATTLIST sale seller CDATA #REQUIRED\
-			  subtotal CDATA #REQUIRED\
-			  total CDATA #REQUIRED\
-			  date CDATA #REQUIRED\
-	>\
-	<!ATTLIST album price CDATA #IMPLIED>\
+    <!ELEMENT sale (album*)>\
+    <!ELEMENT album (band, title)>\
+    <!ELEMENT band (#PCDATA)>\
+    <!ELEMENT title (#PCDATA)>\
+    <!ATTLIST sale seller CDATA #REQUIRED\
+              subtotal CDATA #REQUIRED\
+              total CDATA #REQUIRED\
+              date CDATA #REQUIRED\
+    >\
+    <!ATTLIST album price CDATA #IMPLIED>\
 ]>\
 <?xml-stylesheet type="text/xsl" href="bh.xsl" ?>\
 <buyinghistory>
