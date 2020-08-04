@@ -91,81 +91,7 @@ Because XML is so verbose I continued tracking my purchases in my own text forma
 # when the pattern space is appended to the hold space the unprocessed text
 # will be at start of line and can be easily erased.
 s!\([^:]*\):\(.*\):\([^:]*\):\([^:]*\):\([^:]*\)$!\2<sale seller="\1" subtotal="\3" total="\4" date="\5">!
-
-# convert date from M/D/YY to YYYY-MM-DD, save to hold space and isolate
-# album info
-s!\([0-9][0-9]\)/\([0-9][0-9]\)/\([0-9][0-9]\)!20\3-\1-\2!
-s!\([0-9][0-9]\)/\([0-9]\)/\([0-9][0-9]\)!20\3-\1-0\2!
-s!\([0-9]\)/\([0-9][0-9]\)/\([0-9][0-9]\)!20\3-0\1-\2!
-s!\([0-9]\)/\([0-9]\)/\([0-9][0-9]\)!20\3-0\1-0\2!
-h 
-s!<.*>$!!
-
-# xml-ize album price. # is added as a place holder to facilitate converting
-# the price element into an album attribute later.
-s!":\([^,}]*\)\([,}]\)!"#<price>\1</price>\2!g
-
-# if no price, add empty price tag
-s!"\([,}]\)!"#<price></price>\1!g
-
-# xml-ize album title
-s!"\([^"]*\)"!<title>\1</title>!g
-
-# put all albums by same band on separate line
-s!},!\n!g
-
-# insert newline at beginning of line to facilitate processing album info
-s!^!\n!
-
-# xml-ize band name. @ added as place holder to facilitate next step. Necessary
-# when there are multiple albums in a sale AND multiple albums by same bands.
-s!\n\([^{]*\){!\n@<band>\1</band>!g
-
-# insert band tag for multiple albums by same band, and delete @ place holder
-:loop
-s!\(<band>[^>]*>\)\([^@]*\),<ti!\1\2,\1<ti!
-t loop
-s!@!!g
-
-# put each album on separate line and get rid of closing brace
-s!>,!>\n!g
-s!}$!!
-
-# add album tag
-s!\n<ba!\n<album><ba!g
-s!ce>\n!ce></album>\n!g
-s!ce>$!ce></album>!
-
-# move price from being its own element to being attribute of album element,
-# and delete empty price attributes
-s!<album>\([^#]*\)#<price>\([^<]*\)</price>!<album price="\2">\1!g
-s! price=""!!g
-
-# get rid of extraneous newline, and put all tags on separate line
-s!^\n!!
-s!><!>\n<!g
-
-# append to hold space, retrieve new hold space, and delete unprocessed text
-H
-g
-s!^[^<]*\(<.*\)!\1!
-
-# Insert ending tags (each line in old file represents one sale). Indenting must
-# be added here because the inserted/appended text does not become part of the
-# pattern space.
-a\
-  </sale>
-$a\
-</buyinghistory>
-
-# add indenting
-s!<sal!  &!g
-s!<alb!    &!g
-s!</al!    &!g
-s!<ban!      &!g
-s!<tit!      &!g
-
-## END ##
+...
 ```
 
 I had a makefile to simplify the process. 
@@ -377,7 +303,7 @@ And the all new bh.xml was born.
 </bh>
 ```
 
-A few years after this I picked up a book called *XSLT: Working with XML and HTML* by Khun Yee Fung which I used to transform my XML into HTML. After getting a web host account, installing FileZilla FTP client, and using a little PHP, I was able to bring my fetish to the light of day.
+Thanks to a book I found at a second hand store[^1],  I used to transform my XML into HTML. After getting a web host account, installing FileZilla FTP client, and using a little PHP, I was able to bring my fetish to the light of day.
 
 [Peter Grace's Tape Buying History](https://petergrace.site/buying-history/)
 
@@ -403,3 +329,4 @@ So what's next for Phase 4? I discovered/realized a few things while writing thi
 
 I realize that it's purely a vanity piece of software but it's a labor of love.
 
+[^1]: *XSLT: Working with XML and HTML* by Khun Yee Fung. Addison-Wesley. 2001. 
