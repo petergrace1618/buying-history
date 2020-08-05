@@ -5,11 +5,8 @@ As a teenager I had a small collection of cassette tapes, but I sold them when I
 ## Phase 1
 I kept track of my purchases in a [text file][2] using a format of my own devising. Then in 2008, while I was going to PCC for Computer Science, I wrote a one-off Java program to convert my precious gobbledygook into XML. I even wrote the program in pseudocode first in proper academic fashion. Unfortunately, I have neither the Java nor the pseudocode anymore, but the program worked beautifully. 
 
-In an Introduction to Unix class, I discovered the text processing utility `sed`, and I immediately fell in love with its arcane syntax. So as a programming exercise I wrote [a sed script][3] to convert my original text file to [XML][4]. To test my conversion script, I wrote several smaller scripts.   
-
+In an Introduction to Unix class, I discovered the text processing utility `sed`, and I immediately fell in love with its arcane syntax. So as a programming exercise I wrote [a sed script][3] to convert my original text file to [XML][4]. And to test my conversion script, I wrote several smaller scripts which worked by extracting the same data from the old and new files which I then compared using `diff` on the command line.
 - [newbuyers.sed](legacy_files/newbuyers.sed), [oldbuyers.sed](legacy_files/oldbuyers.sed), [newtitles.sed](legacy_files/newtitles.sed), [oldtitles.sed](legacy_files/oldtitles.sed)   
-
-They worked by extracting the same data from the old and new files which I then compared using `diff` on the command line. My conversion script also worked beautifully.
 
 Elements vs. Attributes   
 Originally, I stored the data in elements, but then later decided that using attributes was more compact and looked way cooler with syntax highlighting, so I wrote [another sed script][5] to convert it [again][6].
