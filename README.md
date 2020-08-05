@@ -1,3 +1,13 @@
+revert <bh> back to <buyinghistory>
+- [ ] change Seed()
+- [ ] change PrintDbXml()
+create README_files/
+- [ ] mv bh.{xml,xsd} Buyinghistory.{xml,xsd}
+- [ ] mkdir README_files
+- [ ] mv *.png README_files
+
+
+
 # buying-history  
 As a teenager I had a small collection of cassette tapes, but I sold them when I was 19 because I thought I had outgrown them. Ten years later, I started collecting cassettes again. This time on eBay and Amazon.
 
