@@ -285,7 +285,7 @@ namespace BuyingHistory
             using (var db = new BuyingHistoryContext())
             {
                 xw.WriteStartDocument();
-                xw.WriteStartElement("bh");
+                xw.WriteStartElement("buyinghistory");
 
                 foreach(Sale sale in db.Sales.OrderBy(s => s.Date))
                 {

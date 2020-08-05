@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<bh>
+<buyinghistory>
   <sale>
     <store>Amazon</store>
     <seller>square deal recordings</seller>
@@ -1368,36 +1368,6 @@
   </sale>
   <sale>
     <store>eBay</store>
-    <seller>august609</seller>
-    <date>2007-10-14</date>
-    <total>7.62</total>
-    <item>
-      <price>2.40</price>
-      <album>
-        <band>Sepultura</band>
-        <title>Beneath The Remains</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-    <item>
-      <price>0.07</price>
-      <album>
-        <band>Napalm Death</band>
-        <title>Death By Manipulation</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-    <item>
-      <price>1.40</price>
-      <album>
-        <band>Deicide</band>
-        <title>Amon: Feasting The Beast</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-  </sale>
-  <sale>
-    <store>eBay</store>
     <seller>recordrat</seller>
     <date>2007-10-13</date>
     <total>25.64</total>
@@ -1422,6 +1392,36 @@
       <album>
         <band>Metal Church</band>
         <title>Blessing In Disguise (Promotional Copy)</title>
+        <format>CASSETTE</format>
+      </album>
+    </item>
+  </sale>
+  <sale>
+    <store>eBay</store>
+    <seller>august609</seller>
+    <date>2007-10-14</date>
+    <total>7.62</total>
+    <item>
+      <price>2.40</price>
+      <album>
+        <band>Sepultura</band>
+        <title>Beneath The Remains</title>
+        <format>CASSETTE</format>
+      </album>
+    </item>
+    <item>
+      <price>0.07</price>
+      <album>
+        <band>Napalm Death</band>
+        <title>Death By Manipulation</title>
+        <format>CASSETTE</format>
+      </album>
+    </item>
+    <item>
+      <price>1.40</price>
+      <album>
+        <band>Deicide</band>
+        <title>Amon: Feasting The Beast</title>
         <format>CASSETTE</format>
       </album>
     </item>
@@ -1480,36 +1480,6 @@
   </sale>
   <sale>
     <store>eBay</store>
-    <seller>roundflat</seller>
-    <date>2008-04-26</date>
-    <total>9.92</total>
-    <item>
-      <price>0.99</price>
-      <album>
-        <band>Foetus Inc</band>
-        <title>Sink</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-    <item>
-      <price>0.99</price>
-      <album>
-        <band>Scraping Foetus Off The Wheel</band>
-        <title>Hole</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-    <item>
-      <price>0.99</price>
-      <album>
-        <band>The Residents</band>
-        <title>The King And Eye</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-  </sale>
-  <sale>
-    <store>eBay</store>
     <seller>mmusic</seller>
     <date>2008-04-24</date>
     <total>33.45</total>
@@ -1550,6 +1520,36 @@
       <album>
         <band>Nevermore</band>
         <title>Nevermore</title>
+        <format>CASSETTE</format>
+      </album>
+    </item>
+  </sale>
+  <sale>
+    <store>eBay</store>
+    <seller>roundflat</seller>
+    <date>2008-04-26</date>
+    <total>9.92</total>
+    <item>
+      <price>0.99</price>
+      <album>
+        <band>Foetus Inc</band>
+        <title>Sink</title>
+        <format>CASSETTE</format>
+      </album>
+    </item>
+    <item>
+      <price>0.99</price>
+      <album>
+        <band>Scraping Foetus Off The Wheel</band>
+        <title>Hole</title>
+        <format>CASSETTE</format>
+      </album>
+    </item>
+    <item>
+      <price>0.99</price>
+      <album>
+        <band>The Residents</band>
+        <title>The King And Eye</title>
         <format>CASSETTE</format>
       </album>
     </item>
@@ -3424,4 +3424,4 @@
       </album>
     </item>
   </sale>
-</bh>
+</buyinghistory>

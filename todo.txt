@@ -1,7 +1,4 @@
 revert <bh> back to <buyinghistory>
 - change Seed()
 - change PrintDbXml()
-- mv bh.{xml,xsd} Buyinghistory.{xml,xsd}
-mkdir README_files
-mv *.png README_files
 
