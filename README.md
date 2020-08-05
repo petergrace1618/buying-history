@@ -1,4 +1,4 @@
-revert <bh> back to <buyinghistory>
+revert \<bh\> back to \<buyinghistory\>
 - [ ] change Seed()
 - [ ] change PrintDbXml()
 create README_files/
