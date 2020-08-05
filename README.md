@@ -4,14 +4,7 @@ As a teenager I had a small collection of Heavy Metal cassette tapes, but I sold
 ## Phase 1
 For several years I kept track of my purchases in a [text file](legacy_files/Buyinghistory.txt "Buyinghistory.txt") which had a somewhat arcane format of my own devising. Then in 2008, while I was going to PCC for Computer Science, I wrote a one-off Java program to convert my precious gobbledygook into XML. I even wrote the program in pseudocode first in proper academic fashion. Unfortunately, I have neither the Java nor the pseudocode anymore, but [the result](legacy_files/bh.xml) was magnificent. 
 
-<dl>
-  <dt>Problem</dt>
-  <dd>I had to continue tracking my purchases.</dd>
-  <dd>I wanted to avoid typing raw XML by hand.</dd>
-  <dd>I discovered sed which I soon became enamored with.</dd>
-  <dt>Solution</dt>
-  <dd>I wrote a sed script to convert my original file to XML. </dd>
-</dl>
+To avoid having to manually type raw XML, I continued tracking my purchases  I wrote a sed script to 
 
 I had a makefile to simplify the process. 
 
