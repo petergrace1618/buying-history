@@ -16,7 +16,8 @@ In the back of my mind, though, I had a feeling that my XML schema may not be as
 
 On January 9 2010, I broke my schema.
 
-You see, some tapes are sold as a *lot* meaning multiple tapes sold as one item. To account for this, I used a `price` attribute on the `<album>` element for tapes sold individually and a `subtotal` attribute on the `<sale>` element for tapes sold as a lot. This had been adequate until one crisp January afternoon when I decided to buy a single tape ***and*** a lot from the same seller in the same sale.  And that was that.  My Weltanschauung went kaput.
+You see, some tapes are sold as a *lot* meaning multiple tapes sold as one item. To account for this, I used a `price` attribute on the `<album>` element for tapes sold individually and a `subtotal` attribute on the `<sale>` element for tapes sold as a lot. This had been adequate until one crisp January afternoon when I decided to buy a single tape ***and*** a lot from the same seller in the same sale.  And that was that.   
+My Weltanschauung went kaput.
 
 It was time to refactor my XML.
 
@@ -30,23 +31,20 @@ It was really a simple solution, melodrama notwithstanding.
 
 And my all-new [bh.xml][8] was reborn.
 
-With my Weltanschauung now restored, I moved on to my next goal which was to bring my obsession to the light of day. 
+With my Weltanschauung now restored, 
 
 I bought a [book][1] about XSLT which allowed me to render my XML as HTML. With a web hosting account, FileZilla FTP client, and a little PHP [Peter Grace's Tape Buying History][9] was unleashed upon the world. With no great fanfare, I admit.
 
+My ultimate goal since the beginning was to store my buying history in a database
+
 ## Phase 3
 
-In July of 2020 as a student at the Tech Academy, I had the opportunity to create a console application in C# using Entity Framework Code First. It should come as no surprise that I took the opportunity to bring my years-long goal closer to fruition.
+In July of 2020 as a student at the Tech Academy, I had the opportunity to create a console application in C# using Entity Framework Code First. 
 
 ## Phase 4? 
 
-I discovered/realized a few things while writing this README. I 
-- I want to change the `<store>`, `<seller>`, `<total>`, `<date>`, and `<price>` elements back to being attributes. It looks more sleek, and it's also more colorful with syntax highlighting.
-- The console app needs error checking to test for empty strings on input.
+Create a web application using MVC.
 
-- Create a web application using MVC.
-
-I realize that it's purely a vanity piece of software but it's a labor of love.
 
 [1]: <https://www.amazon.com/XSLT-Working-Khun-Yee-Fung/dp/0201711036/> "XSLT: Working with XML and HTML by Khun Yee Fung" 
 [2]: <legacy_files/Buyinghistory.txt> "Buyinghistory.txt"
