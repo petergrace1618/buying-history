@@ -61,14 +61,6 @@ I had the good fortune of happening upon a [book][1] about XSLT at a second hand
 
 In July of 2020 as a student at the Tech Academy, I had the opportunity to create a console application in C# using Entity Framework Code First. It should come as no surprise that I took the opportunity to bring my years-long goal closer to fruition.
 
-Output of `$bh xml`, `$bh print`, and `$bh add`.
-
-![BuyingHistory console app screenshot](buyinghistory-console-scrshot-2.png)
-
-![BuyingHistory console app screenshot](buyinghistory-console-scrshot-3.png)
-
-![BuyingHistory console app screenshot](buyinghistory-console-scrshot-1.png)
-
 ## Phase 4? 
 
 I discovered/realized a few things while writing this README. I 
