@@ -4,19 +4,22 @@ As a teenager I had a small collection of Heavy Metal cassette tapes, but I sold
 ## Phase 1
 For several years I kept track of my purchases in a [text file][2] using a format of my own devising. Then in 2008, while I was going to PCC for Computer Science, I wrote a one-off Java program to convert my precious gobbledygook into XML. I even wrote the program in pseudocode first in proper academic fashion. Unfortunately, I have neither the Java nor the pseudocode anymore, but the program worked beautifully. 
 
-Then I discovered the text processing utility `sed` in an Introduction to Unix class. I immediately fell in love with its arcane syntax, so as a programming exercise I wrote [a sed script][3] to convert my original text file to [XML](legacy_files/bh1.xml). I also wrote a series of other scripts ([newbuyers.sed](legacy_files/newbuyers.sed), [newbuyers.sed](legacy_files/oldbuyers.sed), [newbuyers.sed](legacy_files/newtitles.sed), [newbuyers.sed](legacy_files/oldtitles.sed)) in sed, bash, and awk to test my conversion script. 
+Then I discovered the text processing utility `sed` in an Introduction to Unix class. I immediately fell in love with its arcane syntax, so as a programming exercise I wrote [a sed script][3] to convert my original text file to [XML](legacy_files/bh1.xml). I also wrote a series of other scripts to test my conversion script. 
+- [newbuyers.sed](legacy_files/newbuyers.sed)
+- [oldbuyers.sed](legacy_files/oldbuyers.sed)
+- [newtitles.sed](legacy_files/newtitles.sed)
+- [oldtitles.sed](legacy_files/oldtitles.sed)
 
-At first I put all the data into elements, but then decided that using attributes looked way cooler with syntax highlighting, so I wrote [another sed script][4]. Here is [the result][5]. It looked great but was 
+I put all the data into elements, but then decided that using attributes looked way cooler with syntax highlighting, so I wrote [another sed script][4]. Here is [the result][5]. It looked great but was 
 
 I had a makefile to simplify the process. 
 
 [Makefile](legacy_files/Makefile)
 
-I wrote some scripts to make sure my conversion worked. 
-
-
-
 And a few ancillary scripts like this one:
+ 
+- [maketotals.sed](legacy_files/maketotals.sed)
+- [printtotals.awk](legacy_files/printtotals.awk)
 
 Which produced such glorious output as this: 
 
