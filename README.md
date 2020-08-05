@@ -2,9 +2,9 @@
 As a teenager I had a small collection of Heavy Metal cassette tapes, but I sold them when I was 19 because I thought I had outgrown them. Ten years later, after realizing the gold mine that had been in my possession, I started collecting cassettes again. Very few record stores sold tapes anymore so I resorted to eBay and Amazon.
 
 ## Phase 1
-I kept track of my purchases in a text filez.
+I kept track of my purchases in a [text file](legacy_files/Buyinghistory.txt "Buyinghistory.txt"). 
 
-[Buyinghistory.txt](legacy_files/Buyinghistory.txt)
+
 
 I knew I needed a standard file format, so in 2008 while I was going to PCC for Computer Science I wrote a one-off Java program to convert my precious gobbledygook into XML. I even wrote it in pseudocode first in proper academic fashion. Unfortunately I have neither the Java nor the pseudocode anymore, but my program worked beautifully. 
 
