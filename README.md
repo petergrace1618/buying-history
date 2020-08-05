@@ -6,16 +6,15 @@ For several years I kept track of my purchases in a [text file][2] using a forma
 
 Then I discovered the text processing utility `sed` in an Introduction to Unix class. I immediately fell in love with its arcane syntax, so as a programming exercise I wrote [a sed script][3] to convert my original text file to [XML][4]. I also wrote a series of scripts to test my conversion script. ([newbuyers.sed](legacy_files/newbuyers.sed), [oldbuyers.sed](legacy_files/oldbuyers.sed), [newtitles.sed](legacy_files/newtitles.sed), [oldtitles.sed](legacy_files/oldtitles.sed))
 
-I put all the data into elements, but then decided that using attributes looked way cooler with syntax highlighting, so I wrote [another sed script][5]. Here is [the result][6]. It looked great but was 
+At first, I used elements to store the data, but then decided that using attributes looked way cooler with syntax highlighting, so I wrote [another sed script][5]. [The result][6] looked great.
 
-I had a [Makefile][7] to simplify the process. 
+To avoid manually entering raw XML, I continued tracking my purchases in my original format and used the sed script to convert to XML. I even had a [Makefile][7] to simplify the process. 
 
-
-
-And a few ancillary scripts like this one:
+I also had a few ancillary scripts like these:
  
 - [maketotals.sed](legacy_files/maketotals.sed)
 - [printtotals.awk](legacy_files/printtotals.awk)
+- [albumsby](legacy_files/albumsby)
 
 Which produced such glorious output as this: 
 
@@ -53,11 +52,11 @@ It was time to refactor my XML.
 
 It was really a simple solution, melodrama notwithstanding.   
 - I wrapped each individual album and lot in an `<item>` tag. 
+- I moved `price` from an attribute of `<album>` to a child element of `<item>` thus removing the redundant subtotal attribute. 
 - I dispensed with using attributes altogether and moved everything into its own element to make it easier to process with XSLT.
-- I moved `price` from an attribute of `<album>` to a child element of `<item>` thus ridding myself of the redundant subtotal attribute. 
-- And finally, influenced by the terseness of Linux commands and willfully flaunting XML's inherent verbosity, I abbreviated the name of the root node. (Admittedly, a manifestation of my antinomian tendencies.)
+- And finally, influenced by the terseness of Linux commands and willfully flaunting XML's inherent verbosity, I abbreviated the name of the root node.
 
-And the all new bh.xml was born.
+And my all-new [bh.xml][8] was reborn.
 
 ```xml
 <bh>
@@ -118,3 +117,4 @@ I realize that it's purely a vanity piece of software but it's a labor of love.
 [5]: <legacy_files/convertbh.sed2> "converbh.sed2"
 [6]: <legacy_files/bh.xml> "Buyinghistory in XML w/ attributes"
 [7]: <legacy_files/Makefile> "Makefile"
+[8]: <bh.xml> "bh.xml"
