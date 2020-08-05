@@ -1,41 +1,20 @@
 # buying-history  
-As a teenager I had a small collection of Heavy Metal cassette tapes, but I sold them when I was 19 because I thought I had outgrown them. Ten years later, I started collecting cassettes again. This time on eBay and Amazon.
+As a teenager I had a small collection of cassette tapes, but I sold them when I was 19 because I thought I had outgrown them. Ten years later, I started collecting cassettes again. This time on eBay and Amazon.
 
 ## Phase 1
 For several years I kept track of my purchases in a [text file][2] using a format of my own devising. Then in 2008, while I was going to PCC for Computer Science, I wrote a one-off Java program to convert my precious gobbledygook into XML. I even wrote the program in pseudocode first in proper academic fashion. Unfortunately, I have neither the Java nor the pseudocode anymore, but the program worked beautifully. 
 
-Then I discovered the text processing utility `sed` in an Introduction to Unix class. I immediately fell in love with its arcane syntax, so as a programming exercise I wrote [a sed script][3] to convert my original text file to [XML][4]. I also wrote a series of scripts to test my conversion script. ([newbuyers.sed](legacy_files/newbuyers.sed), [oldbuyers.sed](legacy_files/oldbuyers.sed), [newtitles.sed](legacy_files/newtitles.sed), [oldtitles.sed](legacy_files/oldtitles.sed))
+Then I discovered the text processing utility `sed` in an Introduction to Unix class, and I immediately fell in love with its arcane syntax. So as a programming exercise I wrote [a sed script][3] to convert my original text file to [XML][4]. I also wrote a series of scripts to test my conversion script. ([newbuyers.sed](legacy_files/newbuyers.sed), [oldbuyers.sed](legacy_files/oldbuyers.sed), [newtitles.sed](legacy_files/newtitles.sed), [oldtitles.sed](legacy_files/oldtitles.sed))
 
 At first, I used elements to store the data, but then decided that using attributes looked way cooler with syntax highlighting, so I wrote [another sed script][5]. [The result][6] looked great.
 
-To avoid manually entering raw XML, I continued tracking my purchases in my original format and used the sed script to convert to XML. I even had a [Makefile][7] to simplify the process. 
+To avoid the potential risks of having to manually enter raw XML in a text editor, I continued tracking my purchases in my original format and used the sed script to update the XML after every purchas. I even had a [Makefile][7] to simplify the process. 
 
-I also had a few ancillary scripts like these:
+I also had a few ancillary scripts like [this one][10] which produced such glorious output as the following:
  
 - [maketotals.sed](legacy_files/maketotals.sed)
-- [printtotals.awk](legacy_files/printtotals.awk)
-- [albumsby](legacy_files/albumsby)
-
-Which produced such glorious output as this: 
-
-```
-$albumsby Black Sabbath
-Black Sabbath:
-	Black Sabbath
-	Black Sabbath (Import)
-	Paranoid
-	Live At Last (Import)
-	Sabbath, Bloody, Sabbath
-	Sabotage
-	We Sold Our Souls For Rock And Roll
-	Technical Ecstasy
-	Never Say Die
-	Heaven And Hell
-	Mob Rules
-	Born Again
-	Born Again
-	Headless Cross
-```
+- [printtotal.awk](legacy_files/printtotal.awk)
+- 
 
 This was all done on the command line using Cygwin (a Linux emulator for Windows) and the vi text editor. 
 
@@ -58,35 +37,11 @@ It was really a simple solution, melodrama notwithstanding.
 
 And my all-new [bh.xml][8] was reborn.
 
-```xml
-<bh>
-  <sale>
-    <store>eBay</store>
-    <seller>_gnasher670</seller>
-    <date>2007-01-03</date>
-    <total>7.27</total>
-    <item>
-      <price>2.37</price>
-      <album>
-        <band>Testament</band>
-        <title>Practice What You Preach</title>
-        <format>CASSETTE</format>
-      </album>
-      <album>
-        <band>Testament</band>
-        <title>The New Order</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-  </sale>
-  ...
-</bh>
-```
-With my Weltanschauung now restored, I moved on to my next goal which was to bring my fetish to the light of day. 
+With my Weltanschauung now restored, I moved on to my next goal which was to bring my obsession to the light of day. 
 
 I had the good fortune of happening upon a [book][1] about XSLT at a second hand store which opened up a myriad of possiblities. I got a web hosting account, FileZilla FTP client
 
-[Peter Grace's Tape Buying History](https://petergrace.site/buying-history/)
+[Peter Grace's Tape Buying History][9]
 
 ## Phase 3
 
@@ -118,3 +73,5 @@ I realize that it's purely a vanity piece of software but it's a labor of love.
 [6]: <legacy_files/bh.xml> "Buyinghistory in XML w/ attributes"
 [7]: <legacy_files/Makefile> "Makefile"
 [8]: <bh.xml> "bh.xml"
+[9]: <https://petergrace.site/buying-history/> "Peter Grace's Tape Buying History"
+[10]: <legacy_files/albumsby> "Print albums by band"
