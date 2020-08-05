@@ -2,18 +2,13 @@
 As a teenager I had a small collection of Heavy Metal cassette tapes, but I sold them when I was 19 because I thought I had outgrown them. Ten years later, I started collecting cassettes again. This time on eBay and Amazon.
 
 ## Phase 1
-For several years I kept track of my purchases in a [text file](legacy_files/Buyinghistory.txt "Buyinghistory.txt") which had a somewhat arcane format of my own devising. Then in 2008, while I was going to PCC for Computer Science, I wrote a one-off Java program to convert my precious gobbledygook into XML. I even wrote the program in pseudocode first in proper academic fashion. Unfortunately, I have neither the Java nor the pseudocode anymore, but my program worked beautifully. 
+For several years I kept track of my purchases in a [text file][2] using a format of my own devising. Then in 2008, while I was going to PCC for Computer Science, I wrote a one-off Java program to convert my precious gobbledygook into XML. I even wrote the program in pseudocode first in proper academic fashion. Unfortunately, I have neither the Java nor the pseudocode anymore, but the program worked beautifully. 
 
-[Buyinghistory in XML](legacy_files/bh.xml)
+Then I discovered the text processing utility `sed` in an Introduction to Unix class. I immediately fell in love with its arcane syntax, and as a programming exercise, I wrote [a sed script][3] to convert my original text file to XML. 
 
-<dl>
-  <dt>Problem</dt>
-  <dd>I had to continue tracking my purchases.</dd>
-  <dd>I wanted to avoid typing raw XML by hand.</dd>
-  <dd>I discovered sed which I soon became enamored with.</dd>
-  <dt>Solution</dt>
-  <dd>I wrote a sed script to convert my original file to XML. </dd>
-</dl>
+At first I put all the data into elements, but then decided that using looked way cooler, so I wrote [another sed script][4] to do that. Here is [the result][5].
+
+
 
 I had a makefile to simplify the process. 
 
@@ -123,3 +118,7 @@ I discovered/realized a few things while writing this README. I
 I realize that it's purely a vanity piece of software but it's a labor of love.
 
 [1]: <https://www.amazon.com/XSLT-Working-Khun-Yee-Fung/dp/0201711036/> "XSLT: Working with XML and HTML by Khun Yee Fung" 
+[2]: <legacy_files/Buyinghistory.txt> "Buyinghistory.txt"
+[3]: <legacy_files/convertbh.sed1> "converbh.sed1"
+[4]: <legacy_files/convertbh.sed2> "converbh.sed2"
+[5]: <legacy_files/bh.xml> "Buyinghistory in XML w/ attributes"
