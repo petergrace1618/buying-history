@@ -42,6 +42,6 @@ Create a web application using MVC.
 [5]: <legacy_files/convertbh.sed2> "converbh.sed2"
 [6]: <legacy_files/bh.xml> "Buyinghistory in XML w/ attributes"
 [7]: <legacy_files/Makefile> "Makefile"
-[8]: <Buyinghistory.xml> "bh.xml"
+[8]: <bh.xml> "bh.xml"
 [9]: <https://petergrace.site/buying-history/> "Peter Grace's Tape Buying History"
 [10]: <legacy_files/albumsby> "Print albums by band"
