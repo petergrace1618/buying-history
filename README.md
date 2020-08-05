@@ -1,12 +1,14 @@
 # buying-history  
-As a teenager I had a small collection of Heavy Metal cassette tapes, but I sold them when I was 19; I guess I felt I had outgrown them. Then in 2006 when I discovered eBay and Amazon at 30, I started collecting tapes again. I guess I wanted to rekindle my youth. And because I'm fastidious, I kept track of my purchases in a text file with a format of my own devising.
+As a teenager I had a small collection of Heavy Metal cassette tapes, but I sold them when I was 19 because I thought I had outgrown them. Ten years later, after realizing the gold mine that had been in my possession, I started collecting cassettes again. Very few record stores sold tapes anymore so I resorted to eBay and Amazon.
 
 ## Phase 1
+I kept track of my purchases in a text filez.
+
 [Buyinghistory.txt](legacy_files/Buyinghistory.txt)
 
-Not exactly reader-friendly. 
-
 I knew I needed a standard file format, so in 2008 while I was going to PCC for Computer Science I wrote a one-off Java program to convert my precious gobbledygook into XML. I even wrote it in pseudocode first in proper academic fashion. Unfortunately I have neither the Java nor the pseudocode anymore, but my program worked beautifully. 
+
+[Buyinghistory in XML](legacy_files/bh.xml)
 
 <dl>
   <dt>Problem</dt>
@@ -30,40 +32,6 @@ I wrote some scripts to make sure my conversion worked.
 
 And a few ancillary scripts like this one:
 
-```
-# albumsby
-#
-# Usage: albumsby band
-#
-# Displays all the albums by band specified on command line
-
-if [ $# -eq 0 ]; then
-	echo Usage: albumsby BAND
-	echo 
-	echo Searches bh.xml and displays all albums by BAND specified on command line.
-	exit
-fi	
-
-if ! grep -qi "<band>$*<" bh.xml; then 
-	echo $* not found
-	exit 1
-fi	
-
-# Command line args are converted to lowercase as is the file data
-# thus making the search case-insensitive
-band=`echo $* | sed -e "/.*/y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/"`
-
-script="/.*/y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/
-/<band>$band/{"
-script=$script'n
-s!^ *<title>\([^<]*\).*!\t\1!
-p
-}'
-
-echo $*:
-sed -n "$script" bh.xml
-```
-
 Which produced such glorious output as this: 
 
 ```
@@ -83,10 +51,9 @@ Black Sabbath:
 	Born Again
 	Born Again
 	Headless Cross
-
 ```
 
-This was all done on the command line using Cygwin (a Linux emulator for Windows) and the vi text editor. And all these files can be found in the `legacy_files` directory.
+This was all done on the command line using Cygwin (a Linux emulator for Windows) and the vi text editor. 
 
 In the back of my mind, though, I had a feeling that my XML schema may not be as robust as it could be, but I didn't give it much thought as I was too consumed with the vagaries and vicissitudes of everyday life. Then one day something unexpected happened and I was confronted with a stark new reality.
 
