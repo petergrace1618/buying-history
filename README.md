@@ -53,9 +53,7 @@ And my all-new [bh.xml][8] was reborn.
 
 With my Weltanschauung now restored, I moved on to my next goal which was to bring my obsession to the light of day. 
 
-I had the good fortune of happening upon a [book][1] about XSLT at a second hand store which opened up a myriad of possiblities. I got a web hosting account, FileZilla FTP client
-
-[Peter Grace's Tape Buying History][9]
+I bought a [book][1] about XSLT which allowed me to render my XML as HTML. With a web hosting account, FileZilla FTP client, and a little PHP [Peter Grace's Tape Buying History][9] was unleashed upon the world. With no great fanfare, I admit.
 
 ## Phase 3
 
