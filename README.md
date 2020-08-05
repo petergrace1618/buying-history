@@ -11,8 +11,23 @@ At first, I used elements to store the data, but then decided that using attribu
 To avoid the potential risks of having to manually enter raw XML in a text editor, I continued tracking my purchases in my original format and used the sed script to update the XML after every purchas. I even had a [Makefile][7] to simplify the process. 
 
 I also had a few ancillary scripts like [this one][10] which produced such glorious output as the following:
- 
+
  ```
+Black Sabbath:
+	Black Sabbath
+	Black Sabbath (Import)
+	Paranoid
+	Live At Last (Import)
+	Sabbath, Bloody, Sabbath
+	Sabotage
+	We Sold Our Souls For Rock And Roll
+	Technical Ecstasy
+	Never Say Die
+	Heaven And Hell
+	Mob Rules
+	Born Again
+	Born Again
+	Headless Cross
  ```
 
 This was all done on the command line using Cygwin (a Linux emulator for Windows) and the vi text editor. 
