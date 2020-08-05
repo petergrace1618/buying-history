@@ -4,31 +4,11 @@ As a teenager I had a small collection of cassette tapes, but I sold them when I
 ## Phase 1
 For several years I kept track of my purchases in a [text file][2] using a format of my own devising. Then in 2008, while I was going to PCC for Computer Science, I wrote a one-off Java program to convert my precious gobbledygook into XML. I even wrote the program in pseudocode first in proper academic fashion. Unfortunately, I have neither the Java nor the pseudocode anymore, but the program worked beautifully. 
 
-Then I discovered the text processing utility `sed` in an Introduction to Unix class, and I immediately fell in love with its arcane syntax. So as a programming exercise I wrote [a sed script][3] to convert my original text file to [XML][4]. I also wrote a series of scripts to test my conversion script. ([newbuyers.sed](legacy_files/newbuyers.sed), [oldbuyers.sed](legacy_files/oldbuyers.sed), [newtitles.sed](legacy_files/newtitles.sed), [oldtitles.sed](legacy_files/oldtitles.sed))
+Then I discovered the text processing utility `sed` in an Introduction to Unix class, and I immediately fell in love with its arcane syntax. So as a programming exercise I wrote [a sed script][3] to convert my original text file to [XML][4]. I also wrote a series of scripts to test my conversion script. They worked by extracting the same data from the old and new files and then comparing them using `diff`. ([newbuyers.sed](legacy_files/newbuyers.sed), [oldbuyers.sed](legacy_files/oldbuyers.sed), [newtitles.sed](legacy_files/newtitles.sed), [oldtitles.sed](legacy_files/oldtitles.sed))
 
-At first, I used elements to store the data, but then decided that using attributes looked way cooler with syntax highlighting, so I wrote [another sed script][5]. [The result][6] looked great.
+Originally, I stored the data in elements, but then later decided that using attributes saved space and looked way cooler with syntax highlighting, so I wrote [another sed script][5]. [The result][6] looked great.
 
-To avoid the potential risks of having to manually enter raw XML in a text editor, I continued tracking my purchases in my original format and used the sed script to update the XML after every purchas. I even had a [Makefile][7] to simplify the process. 
-
-I also had a few ancillary scripts like [this one][10] which produced such glorious output as the following:
-
- ```
-Black Sabbath:
-	Black Sabbath
-	Black Sabbath (Import)
-	Paranoid
-	Live At Last (Import)
-	Sabbath, Bloody, Sabbath
-	Sabotage
-	We Sold Our Souls For Rock And Roll
-	Technical Ecstasy
-	Never Say Die
-	Heaven And Hell
-	Mob Rules
-	Born Again
-	Born Again
-	Headless Cross
- ```
+To avoid the potential risks of having to manually enter raw XML in a text editor, I continued tracking my purchases in my original format and used the sed conversion script to update the XML after every purchase. I even had a [Makefile][7] to simplify the process. 
 
 This was all done on the command line using Cygwin (a Linux emulator for Windows) and the vi text editor. 
 
@@ -36,8 +16,7 @@ In the back of my mind, though, I had a feeling that my XML schema may not be as
 
 On January 9 2010, I broke my schema.
 
-You see, some tapes are sold as a *lot* meaning multiple tapes sold as one item. To account for this, I used a `price` attribute on the `<album>` element for tapes sold individually and a `subtotal` attribute on the `<sale>` element for tapes sold as a lot. This had been adequate until one crisp January afternoon when I decided to buy a single tape ***and*** a lot from the same seller at the same time. And that was that.  
-My Weltanschauung went kaput.
+You see, some tapes are sold as a *lot* meaning multiple tapes sold as one item. To account for this, I used a `price` attribute on the `<album>` element for tapes sold individually and a `subtotal` attribute on the `<sale>` element for tapes sold as a lot. This had been adequate until one crisp January afternoon when I decided to buy a single tape ***and*** a lot from the same seller in the same sale.  And that was that.  My Weltanschauung went kaput.
 
 It was time to refactor my XML.
 
