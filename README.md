@@ -8,7 +8,7 @@ I kept track of my purchases in a [text file][2] using a format of my own devisi
 In an Introduction to Unix class, I discovered the text processing utility `sed`, and I immediately fell in love with its arcane syntax. So as a programming exercise I wrote [a sed script][3] to convert my original text file to [XML][4]. And to test my conversion script, I wrote several smaller scripts which worked by extracting the same data from the old and new files which I then compared using `diff` on the command line.
 - [newbuyers.sed](legacy_files/newbuyers.sed), [oldbuyers.sed](legacy_files/oldbuyers.sed), [newtitles.sed](legacy_files/newtitles.sed), [oldtitles.sed](legacy_files/oldtitles.sed)   
 
-Elements vs. Attributes   
+### Elements vs. Attributes
 Originally, I stored the data in elements, but then later decided that using attributes was more compact and looked way cooler with syntax highlighting, so I wrote [another sed script][5] to convert it [again][6].
 
 To avoid the potential risks of having to manually enter raw XML in a text editor, I continued tracking my purchases in my original format and used the sed conversion script to update the XML after every purchase. I even had a [Makefile][7] to simplify the process. 
