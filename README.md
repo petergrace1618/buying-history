@@ -12,9 +12,8 @@ To avoid the potential risks of having to manually enter raw XML in a text edito
 
 I also had a few ancillary scripts like [this one][10] which produced such glorious output as the following:
  
-- [maketotals.sed](legacy_files/maketotals.sed)
-- [printtotal.awk](legacy_files/printtotal.awk)
-- 
+ ```
+ ```
 
 This was all done on the command line using Cygwin (a Linux emulator for Windows) and the vi text editor. 
 
