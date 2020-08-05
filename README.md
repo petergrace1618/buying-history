@@ -4,7 +4,7 @@ As a teenager I had a small collection of Heavy Metal cassette tapes, but I sold
 ## Phase 1
 For several years I kept track of my purchases in a [text file][2] using a format of my own devising. Then in 2008, while I was going to PCC for Computer Science, I wrote a one-off Java program to convert my precious gobbledygook into XML. I even wrote the program in pseudocode first in proper academic fashion. Unfortunately, I have neither the Java nor the pseudocode anymore, but the program worked beautifully. 
 
-Then I discovered the text processing utility `sed` in an Introduction to Unix class. I immediately fell in love with its arcane syntax, so as a programming exercise I wrote [a sed script][3] to convert my original text file to [XML]. I also wrote a series of other scripts to test my conversion script. 
+Then I discovered the text processing utility `sed` in an Introduction to Unix class. I immediately fell in love with its arcane syntax, so as a programming exercise I wrote [a sed script][3] to convert my original text file to [XML][4]. I also wrote a series of other scripts to test my conversion script. 
 - [newbuyers.sed](legacy_files/newbuyers.sed)
 - [oldbuyers.sed](legacy_files/oldbuyers.sed)
 - [newtitles.sed](legacy_files/newtitles.sed)
