@@ -3,51 +3,11 @@ As a teenager I had a small collection of Heavy Metal cassette tapes, but I sold
 
 ## Phase 1
 [Buyinghistory.txt](legacy_files/Buyinghistory.txt)
-```
-#SELLER:BAND{"ALBUM"[:PRICE][,"ALBUM"[:PRICE]]}[,BAND{"ALBUM"[:PRICE][,"ALBUM"[:PRICE]]}]:[SUBTOTAL]:TOTAL:DATE
-_gnasher670:Testament{"Practice What You Preach","The New Order"}:2.37:7.27:1/3/07
-tragedian1:Slayer{"Reign In Blood":7.50},Trouble{"The Skull":2.99},Xentrix{"Shattered Existence":7.16}::21.65:1/19/07
-thepollies:Exciter{"Heavy Metal Maniac","Long Live the Loud","Exciter"},Mercyful Fate{"In the Shadows":1.99}::9.73:1/9/07
-roundflat:Entombed{"Clandestine"}:1.52:5.52:1/9/07
-roger2095:Mercyless{"Abject Offering"}:4.99:6.74:1/11/07
-millimidian:King Diamond{"Them"}:3.50:6.45:1/16/07
-mmusic:Oingo Boingo{"Best Of Boingo":4.99,"Boingo Alive":5.99},Sacrilege{"Within The Prophecy":5.99},Holy Moses{"Queen Of Siam":5.99},Nevermore{"Nevermore":4.99}::33.45:4/24/08
-...
-```
 
 Not exactly reader-friendly. 
 
 I knew I needed a standard file format, so in 2008 while I was going to PCC for Computer Science I wrote a one-off Java program to convert my precious gobbledygook into XML. I even wrote it in pseudocode first in proper academic fashion. Unfortunately I have neither the Java nor the pseudocode anymore, but my program worked beautifully. 
 
-```xml
-<buyinghistory>
-  <sale seller="_gnasher670" subtotal="2.37" total="7.27" date="2007-01-03">
-    <album>
-      <band>Testament</band>
-      <title>Practice What You Preach</title>
-    </album>
-    <album>
-      <band>Testament</band>
-      <title>The New Order</title>
-    </album>
-  </sale>
-  <sale seller="tragedian1" subtotal="" total="21.65" date="2007-01-19">
-    <album price="7.50">
-      <band>Slayer</band>
-      <title>Reign In Blood</title>
-    </album>
-    <album price="2.99">
-      <band>Trouble</band>
-      <title>The Skull</title>
-    </album>
-    <album price="7.16">
-      <band>Xentrix</band>
-      <title>Shattered Existence</title>
-    </album>
-  </sale>
-  ...
-</buyinghistory>
-```
 <dl>
   <dt>Problem</dt>
   <dd>I had to continue tracking my purchases.</dd>
@@ -57,123 +17,16 @@ I knew I needed a standard file format, so in 2008 while I was going to PCC for 
   <dd>I wrote a sed script to convert my original file to XML. </dd>
 </dl>
 
-```sed
-# convertbh.sed
-#
-# Usage: sed -f convertbh.sed bh.old
-#
-# A sed script that converts Buyinghistory.txt into XML. 
-# New in this version:
-# seller, subtotal, total, and date information are stored as attributes of the
-# sale element, and album price is stored as attribute of album element--the
-# items element is removed.  An xml declaration is also inserted at beginning
-# of file.
-
-## BEGIN ##
-
-# First line of file is comment, so have to insert before first line is deleted
-1i\
-<?xml version="1.0" encoding="US-ASCII" standalone="yes" ?>\
-<!DOCTYPE buyinghistory [\
-<!ELEMENT buyinghistory (sale*)>\
-  <!ELEMENT sale (album*)>\
-    <!ELEMENT album (band, title)>\
-    <!ELEMENT band (#PCDATA)>\
-    <!ELEMENT title (#PCDATA)>\
-    <!ATTLIST sale seller CDATA #REQUIRED\
-                   subtotal CDATA #REQUIRED\
-                   total CDATA #REQUIRED\
-                   date CDATA #REQUIRED\
-    >\
-    <!ATTLIST album price CDATA #IMPLIED>\
-]>\
-<?xml-stylesheet type="text/xsl" href="bh.xsl" ?>\
-<buyinghistory>
-
-# delete comments
-/^#/d
-
-# Extract initial tags, and put all album info at beginning of line, so later
-# when the pattern space is appended to the hold space the unprocessed text
-# will be at start of line and can be easily erased.
-s!\([^:]*\):\(.*\):\([^:]*\):\([^:]*\):\([^:]*\)$!\2<sale seller="\1" subtotal="\3" total="\4" date="\5">!
-...
-```
-
 I had a makefile to simplify the process. 
 
-```make
-bh.xml : bh.old convertbh.sed
-	sed -f convertbh.sed bh.old > bh.xml
+[Makefile](legacy_files/Makefile)
 
-bh.old : Buyinghistory.txt
-	cp Buyinghistory.txt bh.old
-```
+I wrote some scripts to make sure my conversion worked. 
 
-I wrote some test scripts. 
-
-```sed
-#n
-# newbuyers.sed
-# Extracts the buyer name from bh.xml which was produced by convertbh.sed, and
-# writes it to buyers.new.  A similar script (oldbuyers.sed) is also run on the
-# bh.old which outputs a list of buyers to buyers.old. The two output files are
-# then compared with diff in order to test the results of convertbh.sed.
-
-/buyer/{
-s/ *<buyer>\([^<]*\).*/\1/
-w buyers.new
-}
-```
-
-```sed
-#n
-# oldbuyers.sed
-# Extracts the buyer name from bh.old and writes it to buyer.old.  A similar
-# script (newbuyers.sed) is also run on the bh.xml which outputs a list of
-# buyers to buyers.new. The two output files are then compared with diff
-# in order to test the results of convertbh.sed.
-
-/^#/d
-s/^\([^:]*\).*/\1/
-w buyers.old
-```
-
-```sed
-#n
-# newtitles.sed
-# Like newbuyers.sed but extracts titles instead of buyers.
-
-/title/{
-s/ *<title>\([^<]*\).*/\1/
-w titles.new
-}
-```
-
-```sed
-#n
-# oldtitles.sed
-# Like oldbuyers.sed but extracts titles instead of buyers.
-
-# delete comments
-/^#/d
-
-# put a newline after every title
-s!"[^"]*"!&\n!g
-
-# put a newline at start of line to facilitate processing
-s!^!\n!
-
-# delete everything before title on the line
-s!\n[^"]*!\n!g
-
-# delete newline at SOL and EOL, and delete quotes
-s!^\n!!
-s!\n$!!
-s!"!!g
-
-w titles.old
-```
+[newbuyers.sed](legacy_files/newbuyers.sed)
+[newbuyers.sed](legacy_files/oldbuyers.sed)
+[newbuyers.sed](legacy_files/newtitles.sed)
+[newbuyers.sed](legacy_files/oldtitles.sed)
 
 And a few ancillary scripts like this one:
 
@@ -271,36 +124,6 @@ And the all new bh.xml was born.
       <album>
         <band>Testament</band>
         <title>The New Order</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-  </sale>
-  <sale>
-    <store>eBay</store>
-    <seller>tragedian1</seller>
-    <date>2007-01-19</date>
-    <total>21.65</total>
-    <item>
-      <price>7.50</price>
-      <album>
-        <band>Slayer</band>
-        <title>Reign In Blood</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-    <item>
-      <price>2.99</price>
-      <album>
-        <band>Trouble</band>
-        <title>The Skull</title>
-        <format>CASSETTE</format>
-      </album>
-    </item>
-    <item>
-      <price>7.16</price>
-      <album>
-        <band>Xentrix</band>
-        <title>Shattered Existence</title>
         <format>CASSETTE</format>
       </album>
     </item>
