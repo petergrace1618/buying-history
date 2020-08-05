@@ -1,4 +1,0 @@
-revert <bh> back to <buyinghistory>
-- change Seed()
-- change PrintDbXml()
-
