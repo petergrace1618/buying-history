@@ -9,11 +9,11 @@ In an Introduction to Unix class, I discovered the text processing utility `sed`
 - [newbuyers.sed](legacy_files/newbuyers.sed), [oldbuyers.sed](legacy_files/oldbuyers.sed), [newtitles.sed](legacy_files/newtitles.sed), [oldtitles.sed](legacy_files/oldtitles.sed)   
 
 ### Elements vs. Attributes
-Originally, I stored the data in elements, but then later decided that using attributes was more compact and looked way cooler with syntax highlighting, so I wrote [another sed script][5] to convert it [again][6].
+Originally, I stored all the data in elements, but then later decided that using attributes was more compact and looked way cooler with syntax highlighting, so I wrote [another sed script][5] to convert it [again][6].
 
 To avoid the potential risks of having to manually enter raw XML in a text editor, I continued tracking my purchases in my original format and used the sed conversion script to update the XML after every purchase. I even had a [Makefile][7] to simplify the process. 
 
-In the back of my mind, though, I had a feeling that my XML schema may not be as robust as it could be, but I didn't give it much thought as I was too consumed with the vagaries and vicissitudes of everyday life. Then one day something unexpected happened and I was confronted with a stark new reality.
+In the back of my mind, though, I had a feeling that my XML schema may not have been as robust as it could be, but I didn't give it much thought as I was too consumed with the vagaries and vicissitudes of everyday life. Then one day something unexpected happened and I was confronted with a stark new reality.
 
 On January 9 2010, I broke my schema.
 
@@ -27,9 +27,9 @@ It was time to refactor my XML.
 It was really a simple solution, melodrama notwithstanding.   
 - I wrapped each individual album and lot in an `<item>` tag. 
 - I moved `price` from an attribute of `<album>` to a child element of `<item>` thus removing the redundant subtotal attribute. 
-- I dispensed with using attributes altogether and moved everything into its own element to make it easier to process with XSLT.
+- And I dispensed with using attributes altogether and moved everything into its own element to make it easier to process with XSLT.
 
-And my all-new [bh.xml][8] was reborn.
+And my all-new [buyinghistory.xml][8] was reborn.
 
 With my Weltanschauung now restored, 
 
