@@ -119,7 +119,7 @@ namespace BuyingHistory
             Console.Write("  Seller: ");
             sale.Seller = Console.ReadLine().Trim();
 
-            Console.Write("  Date: ", DateTime.Now);
+            Console.Write("  Date: ");
             sale.Date = TryGetDate();
 
             Console.Write("  Total: ");
