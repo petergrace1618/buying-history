@@ -56,54 +56,62 @@ namespace BuyingHistory
             {
                 do
                 {
-                    // Get sale data
                     Console.WriteLine("*** ADD SALE TO BUYING HISTORY ***");
                     Console.WriteLine();
                     Console.WriteLine($"Sale #{++totalSales}");
                     sale = new Sale() { Items = new List<Item>() };
 
-                    GetSaleData(sale);
+                    // SALE TABLE FIELDS
+                    sale.Store = GetString("  Store: ");
+                    sale.Seller = GetString("  Seller: ");
+                    sale.Date = TryGetDate("  Date: ");
+                    sale.Total = TryGetDecimal("  Total: ");
 
                     nSaleItems = 0;
                     do
                     {
-                        // Get items for each sale
                         totalItems++;
                         nSaleItems++;
                         Console.WriteLine($"    Item #{nSaleItems}");
                         item = new Item() { Albums = new List<Album>() };
 
-                        GetItemData(item);
+                        // ITEM TABLE FIELDS
+                        item.Price = TryGetDecimal("      Price: ");
 
                         nItemAlbums = 0;
                         do
                         {
-                            // Get albums for item
                             totalAlbums++;
                             nItemAlbums++;
                             Console.WriteLine($"      Album #{nItemAlbums}");
                             album = new Album();
 
-                            GetAlbumData(album);
+                            var formatOptions = new Dictionary<char, string> 
+                            { { '1', "CASSETTE" }, { '2', "CD" } };
+
+                            // ALBUM TABLE FIELDS
+                            album.Band = GetString("        Band: ");
+                            album.Title = GetString("        Title: ");
+                            album.Format = GetOption("        Format: ", formatOptions);
+
 
                             // Add album to item
                             item.Albums.Add(album);
+                            Console.WriteLine();
 
-                        } while (GetYesNo("\nAdd another album to this item? "));
+                        } while (GetYesNo("Add another album to this item? "));
 
                         // No more albums in item, so add item
                         sale.Items.Add(item);
+                        Console.WriteLine();
 
-                    } while (GetYesNo("\nAdd another item to this sale? "));
-
-                    //Console.WriteLine();
-                    //PrintSale(sale);
-                    //Console.WriteLine();
+                    } while (GetYesNo("Add another item to this sale? "));
 
                     // No more items so add sale
                     db.Sales.Add(sale);
+                    Console.WriteLine();
 
-                } while (GetYesNo("\nAdd another sale? "));
+                } while (GetYesNo("Add another sale? "));
 
                 // No more sales, so save
                 Console.WriteLine($"\nSaving {totalSales} sale(s), {totalItems} item(s), and {totalAlbums} album(s)...");
@@ -111,39 +119,76 @@ namespace BuyingHistory
             }
         }
 
-        static void GetSaleData(Sale sale)
+        static string GetString(string prompt)
         {
-            Console.Write("  Store: ");
-            sale.Store = Console.ReadLine().Trim();
+            string s;
+            do
+            {
+                Console.Write(prompt);
+                s = Console.ReadLine();
+            } while (String.IsNullOrEmpty(s));
 
-            Console.Write("  Seller: ");
-            sale.Seller = Console.ReadLine().Trim();
-
-            Console.Write("  Date: ");
-            sale.Date = TryGetDate();
-
-            Console.Write("  Total: ");
-            sale.Total = TryGetDecimal();
+            return s;
         }
 
-        static void GetItemData(Item item)
+        static DateTime TryGetDate(string prompt)
         {
-            Console.Write("      Price: ");
-            item.Price = TryGetDecimal();
+            var date = new DateTime();
+            bool formatException;
+
+            do
+            {
+                Console.Write(prompt);
+                formatException = false;
+                try
+                {
+                    date = Convert.ToDateTime(Console.ReadLine());
+                }
+                catch (FormatException) {
+                    formatException = true;
+                }
+            } while(formatException);
+
+            return date;
         }
 
-        static void GetAlbumData(Album album)
+        static Decimal TryGetDecimal(string prompt)
         {
-            var formatOptions = new Dictionary<char, string> { { '1', "CASSETTE" }, { '2', "CD" } };
-            
-            Console.Write("        Band: ");
-            album.Band = Console.ReadLine().Trim();
+            Decimal d = 0;
+            bool formatException;
 
-            Console.Write("        Title: ");
-            album.Title = Console.ReadLine().Trim();
+            do
+            {
+                Console.Write(prompt);
+                formatException = false;
+                try
+                {
+                    d = Convert.ToDecimal(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    formatException = true;
+                }
+            } while (formatException);
 
-            //Console.Write("        Format: ");
-            album.Format = GetOption("        Format: ", formatOptions);
+            return d;
+        }
+
+        static string GetOption(string prompt, Dictionary<char, string> options)
+        {
+            string optionsText = "| ";
+            foreach (char o in options.Keys)
+            {
+                optionsText += $"{o} - {options[o]} | ";
+            }
+
+            string response;
+            do
+            {
+                response = GetString($"{prompt}{optionsText}");
+            } while (!options.ContainsKey(response[0]));
+
+            return options[response[0]];
         }
 
         static bool GetYesNo(string prompt)
@@ -159,71 +204,10 @@ namespace BuyingHistory
 
             do
             {
-                Console.Write(prompt);
-                response = Console.ReadLine();
+                response = GetString(prompt);
             } while (!yesNoKeys.ContainsKey(response[0]));
 
             return yesNoKeys[response[0]];
-        }
-
-        static string GetOption(string prompt, Dictionary<char, string> options)
-        {
-            string optionsText = "| ";
-            foreach (char o in options.Keys)
-            {
-                optionsText += $"{o} - {options[o]} | ";
-            }
-
-            Console.Write(prompt);
-            string response;
-            do
-            {
-                Console.Write($"{optionsText}");
-                response = Console.ReadLine();
-            } while (!options.ContainsKey(response[0]));
-
-            return options[response[0]];
-        }
-
-        static DateTime TryGetDate()
-        {
-            var d = new DateTime();
-            bool fe; // format exception flag
-
-            do
-            {
-                fe = false;
-                try
-                {
-                    d = Convert.ToDateTime(Console.ReadLine());
-                }
-                catch (FormatException) {
-                    fe = true;
-                }
-            } while(fe);
-
-            return d;
-        }
-
-        static Decimal TryGetDecimal()
-        {
-            Decimal d = 0;
-            bool fe;
-
-            do
-            {
-                fe = false;
-                try
-                {
-                    d = Convert.ToDecimal(Console.ReadLine());
-                }
-                catch (FormatException)
-                {
-                    fe = true;
-                }
-            } while (fe);
-
-            return d;
         }
 
         static void PrintSale(Sale sale)
