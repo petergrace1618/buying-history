@@ -1,4 +1,5 @@
-# buying-history  
+# buying-history
+
 ## Phase 0
 As a teenager I had a small collection of cassette tapes, but I sold them when I was 20 at a turning point in my life. Ten years later in 2006, I felt compelled for various reasons to rekindle my youthful past-time. As it was now the 21st Century and cassette tapes were nearly a forgotten relic, I started collecting on eBay and Amazon.
 
@@ -24,14 +25,14 @@ It was really a simple solution, melodrama notwithstanding.
 
 And my all-new [bh.xml][8] was reborn.
 
-Shortly after this, I bought a [book about XSLT][1] which allowed me to render my XML as HTML. With a web hosting account, an FTP client, and a little PHP [my obsession][9] was online for the whole world to see. My ultimate goal, however, was to create a web application backed by a database to update and display my buying history. 
+Shortly after this, I bought a [book about XSLT][1] which allowed me to render my XML as HTML. With a web hosting account, an FTP client, and a little PHP, [my obsession][9] was online for the whole world to see. My ultimate goal, however, was to create a web application backed by a database to update and display my buying history. 
 
 ## Phase 3
+In July of 2020 as a student at the Tech Academy, I had the opportunity to create a console application in C# using Entity Framework Code First. I could now fulfill another step toward my dream which has been years in the making: to give my buying history a proper home in a SQL Server database. 
 
-In July of 2020 as a student at the Tech Academy, I had the opportunity to create a console application in C# using Entity Framework Code First. 
+The [program][11] has three features: [add a sale][12] to the database; print the database in one of two formats: [human-friendly][13] and [XML][14]; and save the database in XML format to a file. But most importantly, I populated the database with my bh.xml file in the Seed() function in [Configuration.cs][15].
 
-## Phase 4? 
-
+## The Next Phase
 Create a web application using MVC.
 
 
@@ -45,3 +46,8 @@ Create a web application using MVC.
 [8]: <bh.xml> "bh.xml"
 [9]: <https://petergrace.site/buying-history/> "Peter Grace's Tape Buying History"
 [10]: <legacy_files/albumsby> "Print albums by band"
+[11]: <Program.cs> "BuyingHistory/Program.cs"
+[12]: <README_files/buyinghistory-scrshot-add.png>
+[13]: <README_files/buyinghistory-scrshot-print.png>
+[14]: <README_files/buyinghistory-scrshot-print-xml.png>
+[15]: <Migrations/Configuration.cs> "Configuration.cs"
