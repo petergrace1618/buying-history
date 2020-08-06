@@ -25,7 +25,7 @@
 
             // Moved bh.xml from BuyingHistory/bin/Debug/ to BuyingHistory/
             string projectDir = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-            doc.Load(projectDir + Path.DirectorySeparatorChar + "Buyinghistory.xml");
+            doc.Load(projectDir + Path.DirectorySeparatorChar + "bh.xml");
 
             var saleNodes = doc.GetElementsByTagName("sale");
             var sales = new List<Sale>();

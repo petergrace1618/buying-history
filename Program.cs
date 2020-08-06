@@ -57,7 +57,7 @@ namespace BuyingHistory
                 do
                 {
                     // Get sale data
-                    Console.WriteLine("*** BUYING HISTORY ADD SALE APP ***");
+                    Console.WriteLine("*** ADD SALE TO BUYING HISTORY ***");
                     Console.WriteLine();
                     Console.WriteLine($"Sale #{++totalSales}");
                     sale = new Sale() { Items = new List<Item>() };
