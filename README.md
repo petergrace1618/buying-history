@@ -36,7 +36,6 @@ The [console app][11] has three features: [add a sale][12] to the database, prin
 
 ## The Future
 The app has a few problems which need to be fixed:
-- Prevent the user from entering an empty field.
 - Prevent duplicate records from being added.
 
 And finally:
@@ -51,7 +50,7 @@ Possible additions after that:
 - Add view to show purchase activity and quantity over time or per unit of time.
 - Add view to show albums by a particular band
 
-When all is said and done, it's just a vanity piece of software, but is inseparable from 
+When all is said and done, it's just a vanity piece of software, but...
 
 [1]: <https://www.amazon.com/XSLT-Working-Khun-Yee-Fung/dp/0201711036/> "XSLT: Working with XML and HTML by Khun Yee Fung" 
 [2]: <legacy_files/Buyinghistory.txt> "Buyinghistory.txt"
