@@ -63,9 +63,9 @@ namespace BuyingHistory
 
                     // SALE TABLE FIELDS
                     sale.Store = GetString("  Store: ");
-                    sale.Seller = GetString("  Seller: ");
-                    sale.Date = TryGetDate("  Date: ");
+                    sale.Seller = GetString("  Seller: ", false); // Seller can be null
                     sale.Total = TryGetDecimal("  Total: ");
+                    sale.Date = TryGetDate("  Date: ");
 
                     nSaleItems = 0;
                     do
@@ -115,18 +115,44 @@ namespace BuyingHistory
 
                 // No more sales, so save
                 Console.WriteLine($"\nSaving {totalSales} sale(s), {totalItems} item(s), and {totalAlbums} album(s)...");
-                db.SaveChanges();
+                try 
+                {
+                    db.SaveChanges();
+                }
+                catch(Exception e)
+                {
+                    Exception ie = e;
+                    // Want the Message in the inner SqlException that says explicity
+                    // "Cannot insert duplicate key row", and the value of the key.
+                    do
+                    {
+                        ie = (Exception)ie.InnerException;
+                    } while (ie.GetType() != typeof(System.Data.SqlClient.SqlException) &&
+                             ie != null);
+                    
+                    if (ie == null)
+                    {
+                        // Some other exception
+                        Console.WriteLine($"{e.GetType()}: {e.Message}");
+                    }
+                    else
+                    {
+                        // SqlException. 
+                        Console.WriteLine($"{ie.Message}");
+                    }
+                }
+                
             }
         }
 
-        static string GetString(string prompt)
+        static string GetString(string prompt, bool notNull = true)
         {
             string s;
             do
             {
                 Console.Write(prompt);
                 s = Console.ReadLine();
-            } while (String.IsNullOrEmpty(s));
+            } while (String.IsNullOrEmpty(s) && notNull);
 
             return s;
         }

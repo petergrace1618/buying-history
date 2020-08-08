@@ -38,12 +38,13 @@
                 c => new
                     {
                         SaleId = c.Int(nullable: false, identity: true),
-                        Store = c.String(),
-                        Seller = c.String(),
+                        Store = c.String(nullable: false, maxLength: 100),
+                        Seller = c.String(maxLength: 100),
                         Total = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Date = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.SaleId);
+                .PrimaryKey(t => t.SaleId)
+                .Index(t => new { t.Store, t.Seller, t.Total, t.Date }, unique: true, name: "IX_UniqueFields");
             
         }
         
@@ -51,6 +52,7 @@
         {
             DropForeignKey("dbo.Items", "SaleId", "dbo.Sales");
             DropForeignKey("dbo.Albums", "ItemId", "dbo.Items");
+            DropIndex("dbo.Sales", "IX_UniqueFields");
             DropIndex("dbo.Items", new[] { "SaleId" });
             DropIndex("dbo.Albums", new[] { "ItemId" });
             DropTable("dbo.Sales");

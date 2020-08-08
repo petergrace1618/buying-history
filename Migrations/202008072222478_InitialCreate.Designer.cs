@@ -13,7 +13,7 @@ namespace BuyingHistory.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202007311732002_InitialCreate"; }
+            get { return "202008072222478_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

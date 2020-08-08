@@ -1,17 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace BuyingHistory.Models
 {
     public class Sale
     {
         public int SaleId { get; set; }
+        
+        [Required]
+        [MaxLength(100)]
+        [Index("IX_UniqueFields", 1, IsUnique = true)]
         public string Store { get; set; }
-        public string Seller { get; set; }
-        public decimal Total { get; set; }
-        public DateTime Date { get; set; }
 
+        [MaxLength(100)]
+        [Index("IX_UniqueFields", 2, IsUnique = true)] 
+        public string Seller { get; set; }
+        
+        [Index("IX_UniqueFields", 3, IsUnique = true)] 
+        public decimal Total { get; set; }
+        
+        [Index("IX_UniqueFields", 4, IsUnique = true)] 
+        public DateTime Date { get; set; }
+        
         public virtual List<Item> Items { get; set; }
     }
 
