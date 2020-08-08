@@ -15,7 +15,7 @@ On January 9 2010, I broke my schema.
 Explanation: some tapes are sold as a *lot* meaning multiple tapes sold as one item. To account for this, I used a `price` attribute on the `<album>` element for tapes sold individually and a `subtotal` attribute on the `<sale>` element for tapes sold as a lot. This had been adequate until the day I decided to buy a single tape ***and*** a lot from the same seller.  And that was that.   
 My Weltanschauung went kaput.
 
-I had to refactor my XML.
+It was time to refactor my XML.
 
 ## Phase 2
 It was really a simple solution, melodrama notwithstanding.   
