@@ -12,10 +12,10 @@ To avoid the potential risks of having to manually enter raw XML in a text edito
 
 On January 9 2010, I broke my schema.
 
-You see, some tapes are sold as a *lot* meaning multiple tapes sold as one item. To account for this, I used a `price` attribute on the `<album>` element for tapes sold individually and a `subtotal` attribute on the `<sale>` element for tapes sold as a lot. This had been adequate until one day when I decided to buy a single tape ***and*** a lot from the same seller.  And that was that.   
+Explanation: some tapes are sold as a *lot* meaning multiple tapes sold as one item. To account for this, I used a `price` attribute on the `<album>` element for tapes sold individually and a `subtotal` attribute on the `<sale>` element for tapes sold as a lot. This had been adequate until the day I decided to buy a single tape ***and*** a lot from the same seller.  And that was that.   
 My Weltanschauung went kaput.
 
-It had to refactor my XML.
+It was time to refactor my XML.
 
 ## Phase 2
 It was really a simple solution, melodrama notwithstanding.   
@@ -30,28 +30,26 @@ Shortly after this, I bought a [book about XSLT][1] which allowed me to render m
 My ultimate goal, however, was to create a web application backed by a database to update and display my buying history. 
 
 ## Phase 3
-In July of 2020 as a student at the Tech Academy, I had the opportunity to create a console application in C# using Entity Framework Code First. I could now fulfill another step towards my dream which has been years in the making: to give my buying history a proper home in a SQL Server database. 
+In July of 2020 as a student at the Tech Academy, I had the opportunity to create a console application in C# using Entity Framework Code First which I used to fulfill another step towards my years-long dream: to give my buying history a proper home in a SQL Server database. 
 
-The [console app][11] has three features: [add a sale][12] to the database, print the database in [human-friendly][13] form or in [XML][14], and save the database as an XML file. But my favorite part is the Seed() function in [Configuration.cs][15] where I populate the database with my buying history file. Glorious!
+The [console app][11] has three features: [add a sale][12] to the database, print the database in [XML][14] or in [human-friendly][13] form, and save the database as an XML file. My favorite part, though, is the Seed() function in [Configuration.cs][15] where I populate the database with my buying history file. Glorious! 
 
-## The Future
-The app has a few problems which need to be fixed:
-- Prevent the user from entering an empty field.
-- Prevent duplicate records from being added.
+User input is obtained through several functions that validate the data and enforce the NOT NULL constraint on the models. The `Sale.Seller` field, however, is nullable so I added an optional parameter in `GetString()` that allows an empty string. In `TryGetDate()` and `TryGetDecimal()` I used a try-catch block in a while loop to ensure that Date and Decimal data was in the proper format. I also added data annotations on the model to prevent duplicate records being added. 
 
-And finally:
-- Create a web application using MVC Database First.
+## The Next Phase
+Now that I have my buying history in a database I can make the following improvements:
+- Create a web application using MVC Database First, of course.
 - Add an admin page with CRUD functionality.
-- Add authentication to prevent Joe Schmo from mucking up my life's work.
+- Add authentication
 
-Possible additions after that:
-- Add album art. Either by hovering over an album, or adding a thumbnail to the page.
+Other improvements after that:
+- Add album art. Either by hovering over an album, or adding a thumbnail to the Sale details page.
 - Clicking on an album/band takes the user to metal-archives.com or discogs.com.
 - Clicking on a seller takes the user to seller's page on eBay/Amazon.
-- Add view to show purchase activity and quantity over time or per unit of time.
-- Add view to show albums by a particular band
+- Add view to show purchase activity and quantity over time or over a given span of time.
+- Add view to show all albums by a particular band
 
-When all is said and done, it's just a vanity piece of software, but is inseparable from 
+When all is said and done, I know it's just a vanity piece of software, but it's my pride and joy.
 
 [1]: <https://www.amazon.com/XSLT-Working-Khun-Yee-Fung/dp/0201711036/> "XSLT: Working with XML and HTML by Khun Yee Fung" 
 [2]: <legacy_files/Buyinghistory.txt> "Buyinghistory.txt"
