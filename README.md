@@ -38,16 +38,16 @@ User input is obtained through several functions that validate the data and enfo
 
 ## The Next Phase
 Now that I have my buying history in a database I can make the following improvements:
-- First, create a web application using MVC Database First.
+- Create a web application using MVC Database First, of course.
 - Add an admin page with CRUD functionality.
 - Add authentication
 
-Possible additions after that:
+Other improvements after that:
 - Add album art. Either by hovering over an album, or adding a thumbnail to the Sale details page.
 - Clicking on an album/band takes the user to metal-archives.com or discogs.com.
 - Clicking on a seller takes the user to seller's page on eBay/Amazon.
 - Add view to show purchase activity and quantity over time or over a given span of time.
-- Add view to show albums by a particular band
+- Add view to show all albums by a particular band
 
 When all is said and done, I know it's just a vanity piece of software, but it's my pride and joy.
 
