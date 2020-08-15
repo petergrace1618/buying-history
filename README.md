@@ -34,7 +34,7 @@ In July of 2020 as a student at the Tech Academy, I had the opportunity to creat
 
 The [console app][11] has three features: [add a sale][12] to the database, print the database in [XML][14] or in [human-friendly][13] form, and save the database as an XML file. My favorite part, though, is the Seed() function in [Configuration.cs][15] where I populate the database with my buying history file. Glorious! 
 
-User input is obtained through several functions that validate the data and enforce the NOT NULL constraint on the models. The `Sale.Seller` field, however, is nullable so I added an optional parameter in `GetString()` that allows an empty string. In `TryGetDate()` and `TryGetDecimal()` I used a try-catch block in a while loop to ensure that Date and Decimal data was in the proper format. I also added data annotations on the model to prevent duplicate records being added. 
+User input is obtained through several functions that validate the data and enforce the NOT NULL constraint on the models. The `Sale.Seller` field, however, is nullable so I added an optional parameter in `GetString()` that allows an empty string. In `TryGetDate()` and `TryGetDecimal()` I used a try-catch block in a while loop to ensure that Date and Decimal data is in the proper format. I also added data annotations on the model to prevent duplicate records being added. 
 
 ## The Next Phase
 Now that I have my buying history in a database I can make the following improvements:
