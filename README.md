@@ -42,12 +42,12 @@ The next step is of course to
 - Add an admin portal with CRUD functionality, and
 - Add user authentication. 
 
-For the sake of simplicity, security, and time, I think I can dispense with the admin page and authentication, and instead install my console app on my virtual private server and login over SSH to update the database. Then I can focus on further improvements:
+For the sake of simplicity, security, and time, I think I can dispense with the admin page and authentication, and instead install my console app on my virtual private server and login over SSH to update the database. Then I can focus on further improvements such as:
 - Overhaul the page styling and make it responsive.
 - Add album art. For example, add a thumbnail which displays a modal when clicked.
 - Link each album and band to its corresponding page on [discogs.com][16].
-- Link each seller to their corresponding page on eBay or Amazon.
-- Add a view to show all albums by a particular band
+- Link each seller to their corresponding storefront on eBay or Amazon.
+- Add a view to show all albums by a particular band.
 - Add a view to show purchase activity and quantity over time or over a given span of time.
 
 In the end, I know it's just a vanity piece of software, but it's my pride and joy.
