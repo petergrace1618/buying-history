@@ -37,17 +37,18 @@ The [console app][11] has three features: [add a sale][12] to the database, prin
 User input is obtained through several functions that validate the data and enforce the NOT NULL constraint on the models. The `Sale.Seller` field, however, is nullable so I added an optional parameter in `GetString()` that allows an empty string. In `TryGetDate()` and `TryGetDecimal()` I used a try-catch block in a while loop to ensure that Date and Decimal data is in the proper format. I also added data annotations on the model to prevent duplicate records from being added. 
 
 ## The Next Phase
-Now that I have my buying history in a database I can make the following improvements:
-- Create a web application using MVC Database First, of course.
-- Add an admin page with CRUD functionality.
-- Add authentication
+The next step is of course to
+- Create a web application using MVC Database First,
+- Add an admin portal with CRUD functionality, and
+- Add user authentication. 
 
-Further improvements:
-- Add album art. Either by hovering over an album, or adding a thumbnail to the Sale details page.
-- Clicking on an album or band takes the user to discogs.com.
-- Clicking on a seller takes the user to the seller's page on eBay or Amazon.
-- Add view to show purchase activity and quantity over time or over a given span of time.
-- Add view to show all albums by a particular band
+For the sake of simplicity, security, and time, I think I can dispense with the admin page and authentication, and instead install my console app on my virtual private server and login over SSH to update the database. Then I can focus on further improvements:
+- Overhaul the page styling and make it responsive.
+- Add album art. For example, add a thumbnail which displays a modal when clicked.
+- Link each album and band to its corresponding page on [discogs.com][16].
+- Link each seller to their corresponding page on eBay or Amazon.
+- Add a view to show all albums by a particular band
+- Add a view to show purchase activity and quantity over time or over a given span of time.
 
 In the end, I know it's just a vanity piece of software, but it's my pride and joy.
 
@@ -65,3 +66,4 @@ In the end, I know it's just a vanity piece of software, but it's my pride and j
 [13]: <README_files/buyinghistory-scrshot-print.png>
 [14]: <README_files/buyinghistory-scrshot-print-xml.png>
 [15]: <Migrations/Configuration.cs> "Configuration.cs"
+[16]: <https://www.discogs.com/> "Discogs - Music Database and Marketplace"
