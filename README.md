@@ -42,7 +42,7 @@ The next step is of course to
 - Add an admin portal with CRUD functionality, and
 - Add user authentication. 
 
-For the sake of simplicity, security, and time, I think I can dispense with the admin page and authentication, and instead install my console app on my virtual private server and login over SSH to update the database. Then I can focus on further improvements such as:
+For the sake of simplicity, security, and time, however, I think I can dispense with the admin page and authentication, and instead install my console app on my virtual private server and login over SSH to update the database. Then I can focus on further improvements such as:
 - Overhaul the page styling and make it responsive.
 - Add album art. For example, add a thumbnail which displays a modal when clicked.
 - Link each album and band to its corresponding page on [discogs.com][16].
