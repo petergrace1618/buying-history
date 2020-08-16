@@ -25,16 +25,16 @@ It was really a simple solution, melodrama notwithstanding.
 
 And my [buying history][8] was reborn.
 
-Shortly after this, I bought a [book about XSLT][1] which allowed me to render my XML as HTML. With a web hosting account, an FTP client, and a little PHP, [my obsession][9] was online for the whole world to see. 
+Shortly after this, I bought a [book about XSLT][10] which allowed me to render my XML as HTML. With a web hosting account, an FTP client, and a little PHP, [my obsession][9] was online for the whole world to see. 
 
 My ultimate goal, however, was to create a web application backed by a database to update and display my buying history. 
 
 ## Phase 3
 In July of 2020 as a student at the Tech Academy, I had the opportunity to create a console application in C# using Entity Framework Code First which I used to fulfill another step towards my years-long dream: to give my buying history a proper home in a SQL Server database. 
 
-The [console app][11] has three features: [add a sale][12] to the database, print the database in [XML][14] or in [human-friendly][13] form, and save the database as an XML file. My favorite part, though, is the Seed() function in [Configuration.cs][15] where I use the `System.Xml` API to populate the database with my buying history file. Glorious! 
+The [console app][11] has three features: [add a sale][12] to the database, print the database in [XML][14] or in [human-friendly][13] form, and save the database as an XML file. My favorite part, though, is the Seed() function in [Configuration.cs][15] where I use the `System.Xml` package to populate the database with my buying history file. Glorious! 
 
-User input is obtained through several functions that validate the data and enforce the NOT NULL constraint on the models. The `Sale.Seller` field, however, is nullable so I added an optional parameter in `GetString()` that allows an empty string. In `TryGetDate()` and `TryGetDecimal()` I used a try-catch block in a while loop to ensure that Date and Decimal data is in the proper format. I also added data annotations on the model to prevent duplicate records being added. 
+User input is obtained through several functions that validate the data and enforce the NOT NULL constraint on the models. The `Sale.Seller` field, however, is nullable so I added an optional parameter in `GetString()` that allows an empty string. In `TryGetDate()` and `TryGetDecimal()` I used a try-catch block in a while loop to ensure that Date and Decimal data is in the proper format. I also added data annotations on the model to prevent duplicate records from being added. 
 
 ## The Next Phase
 Now that I have my buying history in a database I can make the following improvements:
@@ -42,16 +42,15 @@ Now that I have my buying history in a database I can make the following improve
 - Add an admin page with CRUD functionality.
 - Add authentication
 
-Other improvements after that:
+Further improvements:
 - Add album art. Either by hovering over an album, or adding a thumbnail to the Sale details page.
-- Clicking on an album/band takes the user to metal-archives.com or discogs.com.
-- Clicking on a seller takes the user to seller's page on eBay/Amazon.
+- Clicking on an album or band takes the user to discogs.com.
+- Clicking on a seller takes the user to the seller's page on eBay or Amazon.
 - Add view to show purchase activity and quantity over time or over a given span of time.
 - Add view to show all albums by a particular band
 
-When all is said and done, I know it's just a vanity piece of software, but it's my pride and joy.
+In the end, I know it's just a vanity piece of software, but it's my pride and joy.
 
-[1]: <https://www.amazon.com/XSLT-Working-Khun-Yee-Fung/dp/0201711036/> "XSLT: Working with XML and HTML by Khun Yee Fung" 
 [2]: <legacy_files/Buyinghistory.txt> "Buyinghistory.txt"
 [3]: <legacy_files/convertbh.sed1> "converbh.sed1"
 [4]: <legacy_files/bh1.xml> "bh1.xml"
@@ -60,7 +59,7 @@ When all is said and done, I know it's just a vanity piece of software, but it's
 [7]: <legacy_files/Makefile> "Makefile"
 [8]: <bh.xml> "bh.xml"
 [9]: <https://petergrace.site/buying-history/> "Peter Grace's Tape Buying History"
-[10]: <legacy_files/albumsby> "Print albums by band"
+[10]: <https://www.amazon.com/XSLT-Working-Khun-Yee-Fung/dp/0201711036/> "XSLT: Working with XML and HTML by Khun Yee Fung" 
 [11]: <Program.cs> "BuyingHistory/Program.cs"
 [12]: <README_files/buyinghistory-scrshot-add.png>
 [13]: <README_files/buyinghistory-scrshot-print.png>
